@@ -1,0 +1,3 @@
+#python packages, the script needs.
+requests
+supabase
