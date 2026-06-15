@@ -12,7 +12,40 @@ async function fetchGames() {
     .from("games")
     .select("*");
 
-  console.log("Got games:", data);
+  const container = document.getElementById("games"); //grabs games div from index.html
+
+for (const game of data) {
+  // build the two buttons for this game
+  const row = document.createElement("div");
+  row.className = "game";
+
+  const awayBtn = document.createElement("button");
+  awayBtn.textContent = game.away_team;
+
+  const homeBtn = document.createElement("button");
+  homeBtn.textContent = game.home_team;
+
+  // when AWAY is clicked: away gets "picked", home gets "faded"
+  awayBtn.addEventListener("click", () => {
+    awayBtn.classList.add("picked");
+    homeBtn.classList.add("faded");
+  });
+
+  // when HOME is clicked: home gets "picked", away gets "faded"
+  homeBtn.addEventListener("click", () => {
+    homeBtn.classList.add("picked");
+    awayBtn.classList.add("faded");
+  });
+
+  // put both buttons in the row, and the row on the page
+  row.appendChild(awayBtn);
+  row.appendChild(homeBtn);
+  container.appendChild(row);
+}
 }
 
 fetchGames();
+
+someButton.addEventListener("click", () => {
+  // code here runs when that button is clicked
+});

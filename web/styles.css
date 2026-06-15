@@ -1,0 +1,18 @@
+/* a game's two buttons sit side by side with a little space */
+.game {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+/* the picked team: blue */
+.picked {
+  background-color: #2563eb;
+  color: white;
+}
+
+/* the NOT-picked team in a decided game: grayed out */
+.faded {
+  background-color: #e5e7eb;
+  color: #9ca3af;
+}
