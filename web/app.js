@@ -25,14 +25,16 @@ for (const game of data) {
   const homeBtn = document.createElement("button");
   homeBtn.textContent = game.home_team;
 
-  // when AWAY is clicked: away gets "picked", home gets "faded"
   awayBtn.addEventListener("click", () => {
+    awayBtn.classList.remove("picked", "faded");
+    homeBtn.classList.remove("picked", "faded");
     awayBtn.classList.add("picked");
     homeBtn.classList.add("faded");
   });
 
-  // when HOME is clicked: home gets "picked", away gets "faded"
   homeBtn.addEventListener("click", () => {
+    awayBtn.classList.remove("picked", "faded");
+    homeBtn.classList.remove("picked", "faded");
     homeBtn.classList.add("picked");
     awayBtn.classList.add("faded");
   });
