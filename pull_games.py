@@ -15,7 +15,7 @@ SUPABASE_URL = os.environ["SUPABASE_URL"]
 SUPABASE_KEY = os.environ["SUPABASE_SECRET_KEY"]
 
 SEASON_YEAR = 2026   # which NFL season to pull
-WEEK = 1             # which week
+WEEK = 2            # which week
 SEASON_TYPE = 2      # 2 = regular season, 3 = playoffs
 
 ESPN_URL = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"

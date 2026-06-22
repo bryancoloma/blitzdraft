@@ -16,3 +16,35 @@
   background-color: #e5e7eb;
   color: #9ca3af;
 }
+
+/* Centers the selection */
+.game {
+  justify-content: center;
+}
+
+body {
+  text-align: center;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+.game span {
+  width: 110px;
+  text-align: right;
+}
+
+.game button {
+  width: 200px;
+  border-radius: 6px;
+}
+
+h1 {
+  margin-left: 110px;
+}
+
+h2 {
+  font-size: 16px;
+  margin-left: 110px;
+}

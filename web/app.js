@@ -8,13 +8,30 @@ const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLI
 console.log("Supabase connected:", supabaseClient);
 
 async function fetchGames() {
+  const currentWeek = 2; // which week to display
   const { data, error } = await supabaseClient
     .from("games")
-    .select("*");
+    .select("*")
+    .eq("week", currentWeek); //rows where the week column equals currentWeek
 
   const container = document.getElementById("games"); //grabs games div from index.html
 
+let lastDate = ""; // remembers the last date header we printed, so we only print each date once
+
 for (const game of data) {
+  const kickOffDate = new Date(game.kickoff_utc);
+  console.log(kickOffDate.toLocaleTimeString());   // ← .toLocaleTimeString() makes it readable
+  const timeText = kickOffDate.toLocaleTimeString(); // ← readable time to be used in the UI
+  const dateText = kickOffDate.toLocaleDateString(); // gets the game's datge as a text.
+
+  //Prints the date header when the date changes
+  if (dateText !== lastDate) {       // date changed since last game?
+  const dateHeader = document.createElement("h2");
+  dateHeader.textContent = dateText;
+  container.appendChild(dateHeader);
+  lastDate = dateText;             // update the sticky note
+}
+
   // build the two buttons for this game
   const row = document.createElement("div");
   row.className = "game";
@@ -40,14 +57,13 @@ for (const game of data) {
   });
 
   // put both buttons in the row, and the row on the page
-  row.appendChild(awayBtn);
-  row.appendChild(homeBtn);
-  container.appendChild(row);
+  const timeLabel = document.createElement("span");
+  timeLabel.textContent = timeText + "  ";
+    row.appendChild(timeLabel);
+    row.appendChild(awayBtn);
+    row.appendChild(homeBtn);
+    container.appendChild(row);
 }
 }
 
 fetchGames();
-
-someButton.addEventListener("click", () => {
-  // code here runs when that button is clicked
-});
