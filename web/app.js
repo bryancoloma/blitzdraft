@@ -7,6 +7,15 @@ const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLI
 // Prove the connection object exists
 console.log("Supabase connected:", supabaseClient);
 
+// PROTECT THIS PAGE: if nobody's logged in, send them to login
+async function requireLogin() {
+  const { data } = await supabaseClient.auth.getUser();
+  if (!data.user) {
+    window.location.href = "login.html";
+  }
+}
+requireLogin();
+
 async function fetchGames() {
   const currentWeek = 2; // which week to display
   const { data, error } = await supabaseClient
@@ -67,3 +76,8 @@ for (const game of data) {
 }
 
 fetchGames();
+
+document.getElementById("logoutBtn").addEventListener("click", async () => {
+  await supabaseClient.auth.signOut();
+  window.location.href = "login.html";
+});

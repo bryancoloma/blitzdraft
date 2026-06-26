@@ -48,3 +48,26 @@ h2 {
   font-size: 16px;
   margin-left: 110px;
 }
+
+/* CHANGE BACKGROUND COLOR HERE */
+body {
+  background-color: lightblue;
+}
+
+/* center the login box on the page, stacked vertically */
+#auth {
+  display: flex;
+  flex-direction: column;   /* stack items top-to-bottom */
+  align-items: center;      /* center them horizontally */
+  gap: 12px;                /* space between each item */
+  max-width: 300px;
+  margin: 80px auto;        /* push down from top + center the box */
+}
+
+/* match the selection buttons' rounded corners */
+#auth input,
+#auth button {
+  border-radius: 6px;
+  padding: 10px;
+  width: 100%;
+}
