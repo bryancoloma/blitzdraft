@@ -7,6 +7,8 @@ const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLI
 // Prove the connection object exists
 console.log("Supabase connected:", supabaseClient);
 
+const myPicks = {}; // holds picks like { game_id: "SEA" } as the user clicks
+
 // PROTECT THIS PAGE: if nobody's logged in, send them to login
 async function requireLogin() {
   const { data } = await supabaseClient.auth.getUser();
@@ -56,6 +58,8 @@ for (const game of data) {
     homeBtn.classList.remove("picked", "faded");
     awayBtn.classList.add("picked");
     homeBtn.classList.add("faded");
+    myPicks[game.id] = game.away_abbr;
+    console.log(myPicks);
   });
 
   homeBtn.addEventListener("click", () => {
@@ -63,6 +67,8 @@ for (const game of data) {
     homeBtn.classList.remove("picked", "faded");
     homeBtn.classList.add("picked");
     awayBtn.classList.add("faded");
+    myPicks[game.id] = game.home_abbr;
+    console.log(myPicks);
   });
 
   // put both buttons in the row, and the row on the page
@@ -80,4 +86,28 @@ fetchGames();
 document.getElementById("logoutBtn").addEventListener("click", async () => {
   await supabaseClient.auth.signOut();
   window.location.href = "login.html";
+});
+
+document.getElementById("saveBtn").addEventListener("click", async () => {
+  // 1. who is logged in?
+  const { data: userData } = await supabaseClient.auth.getUser();
+  const userId = userData.user.id;
+
+  // 2. turn myPicks into rows for the table
+  const rows = Object.entries(myPicks).map(([gameId, team]) => ({
+    user_id: userId,
+    game_id: gameId,
+    picked_team: team,
+  }));
+
+  // 3. save them (upsert = insert or update, no duplicates)
+  const { error } = await supabaseClient
+    .from("picks")
+    .upsert(rows, { onConflict: "user_id, game_id" });
+
+  if (error) {
+    console.log("Save error:", error);
+  } else {
+    console.log("Picks saved!", rows);
+  }
 });
