@@ -25,6 +25,19 @@ async function fetchGames() {
     .select("*")
     .eq("week", currentWeek); //rows where the week column equals currentWeek
 
+  // get this user's already-saved picks
+  const { data: savedPicks } = await supabaseClient
+    .from("picks")
+    .select("game_id, picked_team");
+
+  console.log("Saved picks from DB:", savedPicks);
+
+  // reshape into { game_id: "TEAM" } for easy lookup
+  const savedLookup = {};
+  for (const pick of savedPicks) {
+    savedLookup[pick.game_id] = pick.picked_team;
+  }
+
   const container = document.getElementById("games"); //grabs games div from index.html
 
 let lastDate = ""; // remembers the last date header we printed, so we only print each date once
@@ -52,6 +65,18 @@ for (const game of data) {
 
   const homeBtn = document.createElement("button");
   homeBtn.textContent = game.home_team;
+
+  // if this game was already picked, highlight it and load it into myPicks
+    const savedTeam = savedLookup[game.id];
+    if (savedTeam === game.away_abbr) {
+      awayBtn.classList.add("picked");
+      homeBtn.classList.add("faded");
+      myPicks[game.id] = game.away_abbr;
+    } else if (savedTeam === game.home_abbr) {
+      homeBtn.classList.add("picked");
+      awayBtn.classList.add("faded");
+      myPicks[game.id] = game.home_abbr;
+    }
 
   awayBtn.addEventListener("click", () => {
     awayBtn.classList.remove("picked", "faded");
