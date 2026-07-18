@@ -5,36 +5,31 @@ const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLI
 
 const currentWeek = 2;
 
-async function scoreWeek() {
-  // 1. get this week's games (we only care about finished ones)
-  const { data: games } = await supabaseClient
-    .from("games")
-    .select("id, winner, final")
-    .eq("week", currentWeek);
+async function showLeaderboard() {
+  const { data, error } = await supabaseClient
+    .from("scores")
+    .select("user_id, wins")
+    .eq("week", currentWeek)
+    .order("wins", { ascending: false });   // descending = highest first
 
-  // 2. get my picks
-  const { data: picks } = await supabaseClient
-    .from("picks")
-    .select("game_id, picked_team");
+    // get everyone's display names
+  const { data: profiles } = await supabaseClient
+    .from("profiles")
+    .select("id, display_name");
 
-  // 3. build a lookup of winners: { game_id: "BUF" }
-  const winners = {};
-  for (const game of games) {
-    if (game.final && game.winner) {
-      winners[game.id] = game.winner;
-    }
+  // build a lookup: { user_id: "Bryan" }
+  const nameLookup = {};
+  for (const p of profiles) {
+    nameLookup[p.id] = p.display_name;
   }
 
-  // 4. count how many picks matched the winner
-  let wins = 0;
-  for (const pick of picks) {
-    if (winners[pick.game_id] === pick.picked_team) {
-      wins++;
-    }
-  }
+  const board = document.getElementById("board");
 
-  console.log("Winners:", winners);
-  console.log("My wins:", wins);
+  for (const row of data) {
+    const line = document.createElement("div");
+    line.textContent = `${nameLookup[row.user_id]} — ${row.wins} wins`;
+    board.appendChild(line);
+  }
 }
 
-scoreWeek();
+showLeaderboard();

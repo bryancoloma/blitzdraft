@@ -28,6 +28,7 @@ def get_winners():
             winners[game["id"]] = game["winner"]
     return winners
 
+
 # fetch everyone's picks and count wins per player.
 def score_everyone(winners):
     """Returns { user_id: win_count } for all players."""

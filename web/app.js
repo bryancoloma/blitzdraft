@@ -23,7 +23,8 @@ async function fetchGames() {
   const { data, error } = await supabaseClient
     .from("games")
     .select("*")
-    .eq("week", currentWeek); //rows where the week column equals currentWeek
+    .eq("week", currentWeek)//rows where the week column equals currentWeek
+    .order("kickoff_utc");
 
   // get this user's already-saved picks
   const { data: savedPicks } = await supabaseClient

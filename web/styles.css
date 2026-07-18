@@ -19,7 +19,10 @@
 
 /* Centers the selection */
 .game {
-  justify-content: center;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+  justify-content: center;   
 }
 
 body {
@@ -47,12 +50,13 @@ h1 {
 
 h2 {
   font-size: 16px;
-  margin-left: 110px;
+  /* margin-left: 110px; */
 }
 
 /* CHANGE BACKGROUND COLOR HERE */
 body {
   background-color: lightblue;
+  text-align: center;
 }
 
 /* center the login box on the page, stacked vertically */
@@ -71,4 +75,51 @@ body {
   border-radius: 6px;
   padding: 10px;
   width: 100%;
+}
+
+#logoutBtn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+#saveBtn {
+  margin-left: 110px;
+}
+
+#games {
+  width: 630px;
+  margin: 0 auto;
+}
+
+#games h2 {
+  text-align: left;
+  font-size: 22px;
+  color: #1e3a8a;
+  border-bottom: 2px solid #1e3a8a;
+  padding-bottom: 4px;
+  margin-top: 24px;
+}
+
+/* phone screens */
+@media (max-width: 640px) {
+  #games {
+    width: 100%;
+  }
+
+  h1,
+  #saveBtn {
+    margin-left: 0;
+  }
+
+  .game span {
+    width: 60px;
+    font-size: 12px;
+  }
+
+  .game button {
+    width: auto;
+    flex: 1;
+    font-size: 13px;
+  }
 }
