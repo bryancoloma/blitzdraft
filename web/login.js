@@ -13,7 +13,15 @@ document.getElementById("signupBtn").addEventListener("click", async () => {
   if (error) {
     console.log("Signup error:", error);
   } else {
-    console.log("Signed up:", data);
+    // account created — now save their display name to profiles
+    const displayName = document.getElementById("displayName").value;
+
+    await supabaseClient.from("profiles").insert({
+      id: data.user.id,
+      display_name: displayName,
+    });
+
+    console.log("Signed up + profile created:", displayName);
   }
 });
 
