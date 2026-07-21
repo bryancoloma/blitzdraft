@@ -45,6 +45,9 @@ let lastDate = ""; // remembers the last date header we printed, so we only prin
 
 for (const game of data) {
   const kickOffDate = new Date(game.kickoff_utc);
+  // locked if we're within 5 minutes of kickoff
+  const lockTime = new Date(kickOffDate.getTime() - 5 * 60 * 1000);
+  const isLocked = new Date() > lockTime;
   console.log(kickOffDate.toLocaleTimeString());   // ← .toLocaleTimeString() makes it readable
   const timeText = kickOffDate.toLocaleTimeString(); // ← readable time to be used in the UI
   const dateText = kickOffDate.toLocaleDateString(); // gets the game's datge as a text.
@@ -66,6 +69,11 @@ for (const game of data) {
 
   const homeBtn = document.createElement("button");
   homeBtn.textContent = game.home_team;
+
+  if (isLocked) {
+      awayBtn.disabled = true;
+      homeBtn.disabled = true;
+    }
 
   // if this game was already picked, highlight it and load it into myPicks
     const savedTeam = savedLookup[game.id];
