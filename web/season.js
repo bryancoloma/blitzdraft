@@ -6,7 +6,7 @@ async function showSeason() {
   // get ALL score rows (every week, every player)
   const { data: scores } = await supabaseClient
     .from("scores")
-    .select("user_id, wins");
+    .select("user_id, week, wins");
 
   // get names
   const { data: profiles } = await supabaseClient
@@ -18,21 +18,38 @@ async function showSeason() {
     nameLookup[p.id] = p.display_name;
   }
 
-  // SUM wins per player across all weeks
-  const totals = {};
+// build: { user_id: { 1: wins, 2: wins, ... } }
+  const byPlayer = {};
   for (const row of scores) {
-    totals[row.user_id] = (totals[row.user_id] || 0) + row.wins;
+    if (!byPlayer[row.user_id]) byPlayer[row.user_id] = {};
+    byPlayer[row.user_id][row.week] = row.wins;
   }
 
-  // turn totals into a sortable list, highest first
-  const ranked = Object.entries(totals).sort((a, b) => b[1] - a[1]);
+  const weeks = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
 
-  const board = document.getElementById("board");
-  for (const [userId, wins] of ranked) {
-    const line = document.createElement("div");
-    line.textContent = `${nameLookup[userId]} — ${wins} wins`;
-    board.appendChild(line);
+  // header row
+  let html = "<table><tr><th>Player</th>";
+  for (const w of weeks) {
+    html += `<th>Wk ${w}</th>`;
   }
+  html += "<th>Total</th></tr>";
+
+  // one row per player
+  for (const userId of Object.keys(byPlayer)) {
+    html += `<tr><td>${nameLookup[userId]}</td>`;
+
+    let total = 0;
+    for (const w of weeks) {
+      const wins = byPlayer[userId][w] || 0;
+      total += wins;
+      html += `<td>${wins}</td>`;
+    }
+
+    html += `<td>${total}</td></tr>`;
+  }
+
+  html += "</table>";
+  document.getElementById("board").innerHTML = html;
 }
 
 showSeason();
