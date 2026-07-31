@@ -145,3 +145,18 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
     console.log("Picks saved!", rows);
   }
 });
+
+async function showGreeting() {
+  const { data: userData } = await supabaseClient.auth.getUser();
+  const userId = userData.user.id;
+
+  const { data: profile } = await supabaseClient
+    .from("profiles")
+    .select("display_name")
+    .eq("id", userId)
+    .single();
+
+  document.getElementById("greeting").textContent = `Welcome back ${profile.display_name}`;
+}
+
+showGreeting();
