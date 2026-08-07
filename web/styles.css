@@ -145,3 +145,14 @@ nav {
   font-size: 16px;
 }
 
+/* correct pick after game ends */
+.correct {
+  background-color: #16a34a;
+  color: white;
+}
+
+/* wrong pick after game ends */
+.wrong {
+  background-color: #e11d48;
+  color: white;
+}

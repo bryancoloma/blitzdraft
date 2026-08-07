@@ -29,7 +29,7 @@ async function fetchGames() {
   // get this user's already-saved picks
   const { data: savedPicks } = await supabaseClient
     .from("picks")
-    .select("game_id, picked_team");
+    .select("game_id, picked_team"); 
 
   console.log("Saved picks from DB:", savedPicks);
 
@@ -85,6 +85,18 @@ for (const game of data) {
       homeBtn.classList.add("picked");
       awayBtn.classList.add("faded");
       myPicks[game.id] = game.home_abbr;
+    }
+
+    // color finished games: green if my pick won, red if it lost
+    if (game.final && game.winner) {
+      const myTeam = savedLookup[game.id];
+      const pickedBtn = (myTeam === game.away_abbr) ? awayBtn : homeBtn;
+
+      if (myTeam === game.winner) {
+        pickedBtn.classList.add("correct");
+      } else if (myTeam) {
+        pickedBtn.classList.add("wrong");
+      }
     }
 
   awayBtn.addEventListener("click", () => {
@@ -156,7 +168,7 @@ async function showGreeting() {
     .eq("id", userId)
     .single();
 
-  document.getElementById("greeting").textContent = `Welcome back ${profile.display_name}`;
+  document.getElementById("greeting").textContent = `Welcome backç ${profile.display_name}`;
 }
 
 showGreeting();
