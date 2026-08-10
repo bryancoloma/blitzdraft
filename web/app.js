@@ -168,7 +168,7 @@ async function showGreeting() {
     .eq("id", userId)
     .single();
 
-  document.getElementById("greeting").textContent = `Welcome backç ${profile.display_name}`;
+  document.getElementById("greeting").textContent = `Welcome back ${profile.display_name}`;
 }
 
 showGreeting();

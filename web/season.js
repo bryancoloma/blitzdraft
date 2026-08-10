@@ -34,8 +34,14 @@ async function showSeason() {
   }
   html += "<th>Total</th></tr>";
 
-  // one row per player
-  for (const userId of Object.keys(byPlayer)) {
+  // rank players by their season total, highest first
+  const rankedPlayers = Object.keys(byPlayer).sort((a, b) => {
+    const totalA = Object.values(byPlayer[a]).reduce((sum, w) => sum + w, 0);
+    const totalB = Object.values(byPlayer[b]).reduce((sum, w) => sum + w, 0);
+    return totalB - totalA;
+  });
+
+  for (const userId of rankedPlayers) {
     html += `<tr><td>${nameLookup[userId]}</td>`;
 
     let total = 0;
