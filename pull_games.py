@@ -16,7 +16,7 @@ SUPABASE_KEY = os.environ["SUPABASE_SECRET_KEY"]
 
 SEASON_YEAR = 2026   # which NFL season to pull
 WEEK = 2            # which week
-SEASON_TYPE = 2      # 2 = regular season, 3 = playoffs
+SEASON_TYPE = 1      # 1 = preseason, 2 = regular season, 3 = playoffs
 
 ESPN_URL = "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard"
 
@@ -78,6 +78,13 @@ def main():
     print(f"Wrote {len(rows)} games for {SEASON_YEAR} week {WEEK}:")
     for r in rows:
         print(f"  {r['away_abbr']} @ {r['home_abbr']}   {r['kickoff_utc']}")
+
+    # store which week is current, so the web pages read it automatically
+    supabase.table("settings").upsert({
+        "key": "current_week",
+        "value": str(WEEK),
+    }).execute()
+    print(f"Set current_week = {WEEK}")
 
 
 if __name__ == "__main__":

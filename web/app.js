@@ -7,6 +7,16 @@ const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLI
 // Prove the connection object exists
 console.log("Supabase connected:", supabaseClient);
 
+// read the current week from the settings table (set by pull_games.py)
+async function getCurrentWeek() {
+  const { data } = await supabaseClient
+    .from("settings")
+    .select("value")
+    .eq("key", "current_week")
+    .single();
+  return parseInt(data.value);
+}
+
 const myPicks = {}; // holds picks like { game_id: "SEA" } as the user clicks
 
 // PROTECT THIS PAGE: if nobody's logged in, send them to login
@@ -19,17 +29,17 @@ async function requireLogin() {
 requireLogin();
 
 async function fetchGames() {
-  const currentWeek = 2; // which week to display
+  const currentWeek = await getCurrentWeek();
   const { data, error } = await supabaseClient
     .from("games")
     .select("*")
-    .eq("week", currentWeek)//rows where the week column equals currentWeek
+    .eq("week", currentWeek) //rows where the week column equals currentWeek
     .order("kickoff_utc");
 
   // get this user's already-saved picks
   const { data: savedPicks } = await supabaseClient
     .from("picks")
-    .select("game_id, picked_team"); 
+    .select("game_id, picked_team");
 
   console.log("Saved picks from DB:", savedPicks);
 
@@ -41,41 +51,40 @@ async function fetchGames() {
 
   const container = document.getElementById("games"); //grabs games div from index.html
 
-let lastDate = ""; // remembers the last date header we printed, so we only print each date once
+  let lastDate = ""; // remembers the last date header we printed, so we only print each date once
 
-for (const game of data) {
-  const kickOffDate = new Date(game.kickoff_utc);
-  // locked if we're within 5 minutes of kickoff
-  const lockTime = new Date(kickOffDate.getTime() - 5 * 60 * 1000);
-  const isLocked = new Date() > lockTime;
-  console.log(kickOffDate.toLocaleTimeString());   // ← .toLocaleTimeString() makes it readable
-  const timeText = kickOffDate.toLocaleTimeString(); // ← readable time to be used in the UI
-  const dateText = kickOffDate.toLocaleDateString(); // gets the game's datge as a text.
+  for (const game of data) {
+    const kickOffDate = new Date(game.kickoff_utc);
+    // locked if we're within 5 minutes of kickoff
+    const lockTime = new Date(kickOffDate.getTime() - 5 * 60 * 1000);
+    const isLocked = new Date() > lockTime;
+    const timeText = kickOffDate.toLocaleTimeString(); // readable time to be used in the UI
+    const dateText = kickOffDate.toLocaleDateString(); // gets the game's date as a text
 
-  //Prints the date header when the date changes
-  if (dateText !== lastDate) {       // date changed since last game?
-  const dateHeader = document.createElement("h2");
-  dateHeader.textContent = dateText;
-  container.appendChild(dateHeader);
-  lastDate = dateText;             // update the sticky note
-}
+    //Prints the date header when the date changes
+    if (dateText !== lastDate) {       // date changed since last game?
+      const dateHeader = document.createElement("h2");
+      dateHeader.textContent = dateText;
+      container.appendChild(dateHeader);
+      lastDate = dateText;             // update the sticky note
+    }
 
-  // build the two buttons for this game
-  const row = document.createElement("div");
-  row.className = "game";
+    // build the two buttons for this game
+    const row = document.createElement("div");
+    row.className = "game";
 
-  const awayBtn = document.createElement("button");
-  awayBtn.textContent = game.away_team;
+    const awayBtn = document.createElement("button");
+    awayBtn.textContent = game.away_team;
 
-  const homeBtn = document.createElement("button");
-  homeBtn.textContent = game.home_team;
+    const homeBtn = document.createElement("button");
+    homeBtn.textContent = game.home_team;
 
-  if (isLocked) {
+    if (isLocked) {
       awayBtn.disabled = true;
       homeBtn.disabled = true;
     }
 
-  // if this game was already picked, highlight it and load it into myPicks
+    // if this game was already picked, highlight it and load it into myPicks
     const savedTeam = savedLookup[game.id];
     if (savedTeam === game.away_abbr) {
       awayBtn.classList.add("picked");
@@ -99,32 +108,30 @@ for (const game of data) {
       }
     }
 
-  awayBtn.addEventListener("click", () => {
-    awayBtn.classList.remove("picked", "faded");
-    homeBtn.classList.remove("picked", "faded");
-    awayBtn.classList.add("picked");
-    homeBtn.classList.add("faded");
-    myPicks[game.id] = game.away_abbr;
-    console.log(myPicks);
-  });
+    awayBtn.addEventListener("click", () => {
+      awayBtn.classList.remove("picked", "faded");
+      homeBtn.classList.remove("picked", "faded");
+      awayBtn.classList.add("picked");
+      homeBtn.classList.add("faded");
+      myPicks[game.id] = game.away_abbr;
+    });
 
-  homeBtn.addEventListener("click", () => {
-    awayBtn.classList.remove("picked", "faded");
-    homeBtn.classList.remove("picked", "faded");
-    homeBtn.classList.add("picked");
-    awayBtn.classList.add("faded");
-    myPicks[game.id] = game.home_abbr;
-    console.log(myPicks);
-  });
+    homeBtn.addEventListener("click", () => {
+      awayBtn.classList.remove("picked", "faded");
+      homeBtn.classList.remove("picked", "faded");
+      homeBtn.classList.add("picked");
+      awayBtn.classList.add("faded");
+      myPicks[game.id] = game.home_abbr;
+    });
 
-  // put both buttons in the row, and the row on the page
-  const timeLabel = document.createElement("span");
-  timeLabel.textContent = timeText + "  ";
+    // put the time + both buttons in the row, and the row on the page
+    const timeLabel = document.createElement("span");
+    timeLabel.textContent = timeText + "  ";
     row.appendChild(timeLabel);
     row.appendChild(awayBtn);
     row.appendChild(homeBtn);
     container.appendChild(row);
-}
+  }
 }
 
 fetchGames();

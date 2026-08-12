@@ -2,9 +2,17 @@ const SUPABASE_URL = "https://lhquczyekypbnlsdelsc.supabase.co";
 const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_E4G8S_HtDAdNB294_QomLA_vLlHMuIR";
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
-const currentWeek = 2;
+async function getCurrentWeek() {
+  const { data } = await supabaseClient
+    .from("settings")
+    .select("value")
+    .eq("key", "current_week")
+    .single();
+  return parseInt(data.value);
+}
 
 async function showGroupPicks() {
+  const currentWeek = await getCurrentWeek();
   // this week's games
   const { data: games } = await supabaseClient
     .from("games")
