@@ -27,7 +27,8 @@ async function showLeaderboard() {
 
   for (const row of data) {
     const line = document.createElement("div");
-    line.textContent = `${nameLookup[row.user_id]} — ${row.wins} wins`;
+    const label = row.wins === 1 ? "win" : "wins";
+    line.textContent = `${nameLookup[row.user_id]} — ${row.wins} ${label}`;
     board.appendChild(line);
   }
 }
