@@ -158,10 +158,11 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
     .from("picks")
     .upsert(rows, { onConflict: "user_id, game_id" });
 
-  if (error) {
+    if (error) {
     console.log("Save error:", error);
   } else {
     console.log("Picks saved!", rows);
+    window.location.href = "group.html";   // shows everyone's picks after saving
   }
 });
 
