@@ -22,6 +22,7 @@ document.getElementById("signupBtn").addEventListener("click", async () => {
     });
 
     console.log("Signed up + profile created:", displayName);
+    window.location.href = "index.html";   // send them straight to the games
   }
 });
 
