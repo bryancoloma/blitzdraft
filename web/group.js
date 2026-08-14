@@ -16,7 +16,7 @@ async function showGroupPicks() {
   // this week's games
   const { data: games } = await supabaseClient
     .from("games")
-    .select("id, away_abbr, home_abbr, kickoff_utc")
+    .select("id, away_abbr, home_abbr, kickoff_utc, winner, final")
     .eq("week", currentWeek)
     .order("kickoff_utc");
 
@@ -37,6 +37,14 @@ async function showGroupPicks() {
     pickLookup[p.user_id][p.game_id] = p.picked_team;
   }
 
+  // winners lookup: { game_id: "SEA" } for finished games
+  const winnerLookup = {};
+  for (const game of games) {
+    if (game.final && game.winner) {
+      winnerLookup[game.id] = game.winner;
+    }
+  }
+
   // header row: blank corner + each game's matchup
   let html = "<table><tr><th>Player</th>";
   for (const game of games) {
@@ -50,7 +58,14 @@ async function showGroupPicks() {
 
     for (const game of games) {
       const pick = pickLookup[profile.id]?.[game.id] || "";
-      html += `<td>${pick}</td>`;
+      const winner = winnerLookup[game.id];
+
+      let cellClass = "";
+      if (pick && winner) {
+        cellClass = (pick === winner) ? "correct" : "wrong";
+      }
+
+      html += `<td class="${cellClass}">${pick}</td>`;
     }
 
     html += "</tr>";
