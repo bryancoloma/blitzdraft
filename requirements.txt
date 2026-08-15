@@ -2,3 +2,7 @@
 requests
 supabase
 python-dotenv
+
+
+<!-- python3 pull_games.py --># gets the final scores + winners from ESPN
+<!-- python3 score_week.py --># scores everyone based on those winners

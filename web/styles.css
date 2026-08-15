@@ -156,3 +156,10 @@ nav {
   background-color: #e11d48;
   color: white;
 }
+
+.score {
+  font-weight: bold;
+  text-align: center;
+  min-width: 60px;
+  display: inline-block;
+}
