@@ -37,9 +37,11 @@ async function fetchGames() {
     .order("kickoff_utc");
 
   // get this user's already-saved picks
+  const { data: authData } = await supabaseClient.auth.getUser();
   const { data: savedPicks } = await supabaseClient
     .from("picks")
-    .select("game_id, picked_team");
+    .select("game_id, picked_team")
+    .eq("user_id", authData.user.id);
 
   console.log("Saved picks from DB:", savedPicks);
 
