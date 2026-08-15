@@ -131,6 +131,15 @@ async function fetchGames() {
     timeLabel.textContent = timeText + "  ";
     row.appendChild(timeLabel);
     row.appendChild(awayBtn);
+
+    // show the score between the teams once the game has scores
+    if (game.away_score !== null && game.home_score !== null) {
+      const scoreLabel = document.createElement("span");
+      scoreLabel.textContent = ` ${game.away_score} - ${game.home_score} `;
+      scoreLabel.className = "score";
+      row.appendChild(scoreLabel);
+    }
+
     row.appendChild(homeBtn);
     container.appendChild(row);
   }
