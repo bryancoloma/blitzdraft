@@ -98,15 +98,21 @@ async function fetchGames() {
       myPicks[game.id] = game.home_abbr;
     }
 
-    // color finished games: green if my pick won, red if it lost
-    if (game.final && game.winner) {
-      const myTeam = savedLookup[game.id];
-      const pickedBtn = (myTeam === game.away_abbr) ? awayBtn : homeBtn;
+    // color finished games
+    if (game.final) {
+      if (!game.winner) {
+        // TIE: gray out both teams
+        awayBtn.classList.add("faded");
+        homeBtn.classList.add("faded");
+      } else {
+        const myTeam = savedLookup[game.id];
+        const pickedBtn = (myTeam === game.away_abbr) ? awayBtn : homeBtn;
 
-      if (myTeam === game.winner) {
-        pickedBtn.classList.add("correct");
-      } else if (myTeam) {
-        pickedBtn.classList.add("wrong");
+        if (myTeam === game.winner) {
+          pickedBtn.classList.add("correct");
+        } else if (myTeam) {
+          pickedBtn.classList.add("wrong");
+        }
       }
     }
 

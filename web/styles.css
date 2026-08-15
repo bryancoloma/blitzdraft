@@ -159,7 +159,7 @@ nav {
 
 .score {
   font-weight: bold;
-  text-align: center;
-  min-width: 60px;
-  display: inline-block;
+  text-align: center !important;
+  width: 70px !important;
+  flex-shrink: 0;
 }
