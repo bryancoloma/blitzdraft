@@ -138,13 +138,13 @@ async function fetchGames() {
     row.appendChild(timeLabel);
     row.appendChild(awayBtn);
 
-    // show the score between the teams once the game has scores
-    if (game.away_score !== null && game.home_score !== null) {
-      const scoreLabel = document.createElement("span");
-      scoreLabel.textContent = ` ${game.away_score} - ${game.home_score} `;
-      scoreLabel.className = "score";
-      row.appendChild(scoreLabel);
-    }
+    // show the score between the teams, defaulting to 0 - 0 before the game
+    const awayScore = game.away_score ?? 0;
+    const homeScore = game.home_score ?? 0;
+    const scoreLabel = document.createElement("span");
+    scoreLabel.textContent = ` ${awayScore} - ${homeScore} `;
+    scoreLabel.className = "score";
+    row.appendChild(scoreLabel);
 
     row.appendChild(homeBtn);
     container.appendChild(row);

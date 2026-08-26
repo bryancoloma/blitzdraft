@@ -12,7 +12,7 @@ load_dotenv()
 SUPABASE_URL = os.environ["SUPABASE_URL"]
 SUPABASE_KEY = os.environ["SUPABASE_SECRET_KEY"]   # secret key = sees ALL picks, bypasses RLS
 
-WEEK = 2
+WEEK = 3
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
