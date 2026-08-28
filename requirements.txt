@@ -1,14 +1,3 @@
-#python packages, the script needs.
 requests
 supabase
 python-dotenv
-
-
-
-pull_games.py
-
-SEASON_TYPE = 1   # still preseason, change to 2 on regular season
-WEEK = 3          # update for specific week
-
-<!-- python3 pull_games.py --># gets the final scores + winners from ESPN
-<!-- python3 score_week.py --># scores everyone based on those winners
