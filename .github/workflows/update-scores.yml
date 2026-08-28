@@ -1,0 +1,29 @@
+name: Update Scores
+
+on:
+  workflow_dispatch:      # lets you run it manually with a button
+  schedule:
+    - cron: '*/15 * * * *'   # every 15 minutes (we'll refine to game-days later)
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get the code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install packages
+        run: pip install -r requirements.txt
+
+      - name: Pull games and score
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          python pull_games.py
+          python score_week.py
