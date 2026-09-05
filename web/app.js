@@ -261,6 +261,13 @@ async function showGreeting() {
     document.getElementById("displayNameInput").value = profile.display_name === "Player" ? "" : (profile.display_name || "");
     document.getElementById("actualNameInput").value = profile.actual_name || "";
   }
+
+    // FORCE actual name: disable Save Picks until it's set
+  const saveBtn = document.getElementById("saveBtn");
+  if (!profile?.actual_name) {
+    saveBtn.disabled = true;
+    document.getElementById("greeting").innerHTML += ` — <span style="color:#e11d48;">Enter your actual name below to save picks</span>`;
+  }
 }
 
 document.getElementById("saveNameBtn").addEventListener("click", async () => {
@@ -278,8 +285,13 @@ document.getElementById("saveNameBtn").addEventListener("click", async () => {
   if (error) {
     console.log("Name save error:", error);
   } else {
-        document.getElementById("greeting").innerHTML = `Welcome back <span class="playerName">${displayName}</span>`;
+    document.getElementById("greeting").innerHTML = `Welcome back <span class="playerName">${displayName}</span>`;
     console.log("Name saved!");
+
+    // if they entered an actual name, unlock Save Picks
+    if (actualName.trim()) {
+      document.getElementById("saveBtn").disabled = false;
+    }
   }
 });
 

@@ -64,3 +64,8 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
   await supabaseClient.auth.signOut();
   window.location.href = "login.html";
 });
+
+// auto-refresh every 15 minutes to keep scores current
+setInterval(() => {
+  location.reload();
+}, 15 * 60 * 1000);
