@@ -18,7 +18,7 @@ document.getElementById("signupBtn").addEventListener("click", async () => {
 
     await supabaseClient.from("profiles").insert({
       id: data.user.id,
-      display_name: displayName,
+      display_name: "Player",   // placeholder until they set it on the picks page
     });
 
     console.log("Signed up + profile created:", displayName);

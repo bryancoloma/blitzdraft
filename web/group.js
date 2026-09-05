@@ -49,6 +49,21 @@ async function showGroupPicks() {
     return rankA - rankB;
   });
 
+  // everyone's tiebreaker guesses (RLS hides others' until last game starts)
+  const { data: tiebreakers } = await supabaseClient
+    .from("tiebreakers")
+    .select("user_id, guess, most_points_team")
+    .eq("week", currentWeek);
+
+  const tbLookup = {};
+  for (const t of tiebreakers) {
+    tbLookup[t.user_id] = t;
+  }
+
+  // has the last game of the week started? (controls whether we show the columns)
+  const lastGame = games[games.length - 1];
+  const lastStarted = new Date() >= new Date(lastGame.kickoff_utc);
+
 // lookup: picks[user_id][game_id] = "SEA"
   const pickLookup = {};
   for (const p of picks) {
@@ -69,6 +84,9 @@ async function showGroupPicks() {
   for (const game of games) {
     html += `<th>${game.away_abbr}<br>@${game.home_abbr}</th>`;
   }
+    if (lastStarted) {
+    html += `<th>Total Pts</th><th>Most Pts Team</th>`;
+  }
   html += "</tr>";
 
   // one row per player
@@ -85,6 +103,11 @@ async function showGroupPicks() {
       }
 
       html += `<td class="${cellClass}">${pick}</td>`;
+    }
+
+      if (lastStarted) {
+      const tb = tbLookup[profile.id] || {};
+      html += `<td>${tb.guess ?? ""}</td><td>${tb.most_points_team ?? ""}</td>`;
     }
 
     html += "</tr>";

@@ -247,14 +247,40 @@ async function showGreeting() {
   const { data: userData } = await supabaseClient.auth.getUser();
   const userId = userData.user.id;
 
-    const { data: profile } = await supabaseClient
+  const { data: profile } = await supabaseClient
     .from("profiles")
-    .select("display_name")
+    .select("display_name, actual_name")
     .eq("id", userId)
-    .maybeSingle();   // returns null instead of erroring if no row
+    .maybeSingle();
 
   const name = profile?.display_name || "Player";
-  document.getElementById("greeting").textContent = `Welcome back ${name}`;
+    document.getElementById("greeting").innerHTML = `Welcome back <span class="playerName">${name}</span>`;
+
+  // pre-fill the name boxes with whatever they have
+  if (profile) {
+    document.getElementById("displayNameInput").value = profile.display_name === "Player" ? "" : (profile.display_name || "");
+    document.getElementById("actualNameInput").value = profile.actual_name || "";
+  }
 }
+
+document.getElementById("saveNameBtn").addEventListener("click", async () => {
+  const { data: userData } = await supabaseClient.auth.getUser();
+  const userId = userData.user.id;
+
+  const displayName = document.getElementById("displayNameInput").value;
+  const actualName = document.getElementById("actualNameInput").value;
+
+  const { error } = await supabaseClient
+    .from("profiles")
+    .update({ display_name: displayName, actual_name: actualName })
+    .eq("id", userId);
+
+  if (error) {
+    console.log("Name save error:", error);
+  } else {
+        document.getElementById("greeting").innerHTML = `Welcome back <span class="playerName">${displayName}</span>`;
+    console.log("Name saved!");
+  }
+});
 
 showGreeting();

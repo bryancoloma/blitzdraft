@@ -163,3 +163,14 @@ nav {
   width: 70px !important;
   flex-shrink: 0;
 }
+
+#greeting {
+  color: #1e3a8a;
+  font-weight: bold;
+}
+
+.playerName {
+  color: #1e3a8a;
+  font-weight: bold;
+  font-size: 1.3em;
+}
