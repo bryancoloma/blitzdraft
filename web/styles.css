@@ -174,3 +174,54 @@ nav {
   font-weight: bold;
   font-size: 1.3em;
 }
+
+/* group picks grid sizing */
+#board th {
+  font-size: 11px;
+  padding: 4px 2px;
+}
+
+/* uniform width for game cells (not the player column) */
+#board td:not(:first-child),
+#board th:not(:first-child) {
+  width: 45px;
+  text-align: center;
+}
+
+/* player name column stays wider */
+#board td:first-child,
+#board th:first-child {
+  width: 90px;
+}
+
+#tiebreakers {
+  max-width: 480px;
+  margin: 20px auto;
+}
+
+.tb-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.tb-row label {
+  text-align: left;
+}
+
+.tb-row input,
+.tb-row select {
+  width: 180px;
+}
+
+.tb-center {
+  justify-content: center;
+  gap: 8px;
+}
+
+#tbGuess {
+  width: 55px;
+  text-align: center;
+}

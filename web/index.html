@@ -30,14 +30,17 @@
 
     <div id="tiebreakers">
   <p><strong>Tiebreakers</strong></p>
-  <label>Total points in the last game: <input type="number" id="tbGuess" min="0"></label>
-  <br>
-  <label>Team scoring the most points this week: 
+  <div class="tb-row tb-center">
+    <label for="tbGuess">Total points in the last game:</label>
+    <input type="number" id="tbGuess" min="0" max="150">
+  </div>
+  <div class="tb-row">
+    <label for="tbMostPoints">Team scoring the most points this week:</label>
     <select id="tbMostPoints">
       <option value="">Select a team</option>
     </select>
-    </label>
-    </div>      
+  </div>
+</div>    
     <button id="saveBtn">Save Picks</button>
 
 <button id="logoutBtn">Log Out</button>

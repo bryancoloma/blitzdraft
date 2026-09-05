@@ -296,3 +296,13 @@ document.getElementById("saveNameBtn").addEventListener("click", async () => {
 });
 
 showGreeting();
+
+// limit the tiebreaker guess to 3 digits, max 150
+document.getElementById("tbGuess").addEventListener("input", (e) => {
+  if (e.target.value.length > 3) {
+    e.target.value = e.target.value.slice(0, 3);
+  }
+  if (parseInt(e.target.value) > 150) {
+    e.target.value = 150;
+  }
+});
