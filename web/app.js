@@ -70,7 +70,7 @@ async function fetchGames() {
       container.appendChild(dateHeader);
       lastDate = dateText;             // update the sticky note
     }
-
+    
     // build the two buttons for this game
     const row = document.createElement("div");
     row.className = "game";
@@ -149,6 +149,35 @@ async function fetchGames() {
     row.appendChild(homeBtn);
     container.appendChild(row);
   }
+
+    // fill the "most points team" dropdown with this week's teams
+  const tbDropdown = document.getElementById("tbMostPoints");
+  const teams = new Set();
+  for (const game of data) {
+    teams.add(game.away_team);
+    teams.add(game.home_team);
+  }
+  for (const team of [...teams].sort()) {
+    const option = document.createElement("option");
+    option.value = team;
+    option.textContent = team;
+    tbDropdown.appendChild(option);
+  }
+
+    // load this user's saved tiebreaker values, if any
+  const { data: authTb } = await supabaseClient.auth.getUser();
+  const week = await getCurrentWeek();
+  const { data: savedTb } = await supabaseClient
+    .from("tiebreakers")
+    .select("guess, most_points_team")
+    .eq("user_id", authTb.user.id)
+    .eq("week", week)
+    .maybeSingle();
+
+  if (savedTb) {
+    document.getElementById("tbGuess").value = savedTb.guess ?? "";
+    document.getElementById("tbMostPoints").value = savedTb.most_points_team ?? "";
+  }
 }
 
 fetchGames();
@@ -163,7 +192,7 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
   const { data: userData } = await supabaseClient.auth.getUser();
   const userId = userData.user.id;
 
-  // 2. turn myPicks into rows for the table
+    // 2. turn myPicks into rows for the table
   const rows = Object.entries(myPicks).map(([gameId, team]) => ({
     user_id: userId,
     game_id: gameId,
@@ -175,11 +204,32 @@ document.getElementById("saveBtn").addEventListener("click", async () => {
     .from("picks")
     .upsert(rows, { onConflict: "user_id, game_id" });
 
-    if (error) {
+  if (error) {
     console.log("Save error:", error);
   } else {
     console.log("Picks saved!", rows);
-    window.location.href = "group.html";   // shows everyone's picks after saving
+
+    // save the tiebreakers too
+    const guess = document.getElementById("tbGuess").value;
+    const mostPoints = document.getElementById("tbMostPoints").value;
+    const currentWeek = await getCurrentWeek();
+
+    const { error: tbError } = await supabaseClient
+      .from("tiebreakers")
+      .upsert({
+        user_id: userId,
+        week: currentWeek,
+        guess: guess ? parseInt(guess) : null,
+        most_points_team: mostPoints || null,
+      }, { onConflict: "user_id, week" });
+
+    if (tbError) {
+      console.log("Tiebreaker save error:", tbError);
+    } else {
+      console.log("Tiebreakers saved!");
+    }
+
+    window.location.href = "group.html";
   }
 });
 
@@ -187,13 +237,14 @@ async function showGreeting() {
   const { data: userData } = await supabaseClient.auth.getUser();
   const userId = userData.user.id;
 
-  const { data: profile } = await supabaseClient
+    const { data: profile } = await supabaseClient
     .from("profiles")
     .select("display_name")
     .eq("id", userId)
-    .single();
+    .maybeSingle();   // returns null instead of erroring if no row
 
-  document.getElementById("greeting").textContent = `Welcome back ${profile.display_name}`;
+  const name = profile?.display_name || "Player";
+  document.getElementById("greeting").textContent = `Welcome back ${name}`;
 }
 
 showGreeting();
