@@ -30,6 +30,25 @@ async function showGroupPicks() {
     .from("profiles")
     .select("id, display_name");
 
+  // everyone's rank this week (computed by the scorer)
+  const { data: scores } = await supabaseClient
+    .from("scores")
+    .select("user_id, rank")
+    .eq("week", currentWeek);
+
+  // lookup: rank by user_id
+  const rankLookup = {};
+  for (const s of scores) {
+    rankLookup[s.user_id] = s.rank;
+  }
+
+  // sort players by rank (rank 1 = winner on top). Unranked players go last.
+  profiles.sort((a, b) => {
+    const rankA = rankLookup[a.id] ?? 999;
+    const rankB = rankLookup[b.id] ?? 999;
+    return rankA - rankB;
+  });
+
 // lookup: picks[user_id][game_id] = "SEA"
   const pickLookup = {};
   for (const p of picks) {

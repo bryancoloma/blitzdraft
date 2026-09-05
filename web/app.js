@@ -178,6 +178,16 @@ async function fetchGames() {
     document.getElementById("tbGuess").value = savedTb.guess ?? "";
     document.getElementById("tbMostPoints").value = savedTb.most_points_team ?? "";
   }
+
+    // lock tiebreaker inputs once the LAST game of the week has started
+  const lastGame = data[data.length - 1];   // games are sorted by kickoff, so last = latest
+  const lastKickoff = new Date(lastGame.kickoff_utc);
+  const lastLockTime = new Date(lastKickoff.getTime() - 5 * 60 * 1000);
+
+  if (new Date() > lastLockTime) {
+    document.getElementById("tbGuess").disabled = true;
+    document.getElementById("tbMostPoints").disabled = true;
+  }
 }
 
 fetchGames();
