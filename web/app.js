@@ -306,3 +306,42 @@ document.getElementById("tbGuess").addEventListener("input", (e) => {
     e.target.value = 150;
   }
 });
+
+async function showPaymentStatus() {
+  const { data: userData } = await supabaseClient.auth.getUser();
+  const userId = userData.user.id;
+  const week = await getCurrentWeek();
+
+  const { data: payment } = await supabaseClient
+    .from("payments")
+    .select("paid")
+    .eq("user_id", userId)
+    .eq("week", week)
+    .maybeSingle();
+
+  const el = document.getElementById("paymentStatus");
+
+  if (payment?.paid) {
+    el.innerHTML = `<span style="color:#16a34a; font-weight:bold;">✅ You're paid for this week</span>`;
+  } else {
+    el.innerHTML = `<span style="color:#e11d48; font-weight:bold;">Payment required for this week —</span> 
+      <a href="https://account.venmo.com/u/TheBryanC" target="_blank">pay $5 via Venmo</a>`;
+  }
+}
+
+showPaymentStatus();
+
+async function showAdminLink() {
+  const { data: userData } = await supabaseClient.auth.getUser();
+  const { data: me } = await supabaseClient
+    .from("profiles")
+    .select("is_admin")
+    .eq("id", userData.user.id)
+    .maybeSingle();
+
+  if (me?.is_admin) {
+    document.getElementById("adminLink").style.display = "inline";
+  }
+}
+
+showAdminLink();
