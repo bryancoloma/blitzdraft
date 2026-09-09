@@ -279,8 +279,7 @@ document.getElementById("saveNameBtn").addEventListener("click", async () => {
 
   const { error } = await supabaseClient
     .from("profiles")
-    .update({ display_name: displayName, actual_name: actualName })
-    .eq("id", userId);
+    .upsert({ id: userId, display_name: displayName, actual_name: actualName });
 
   if (error) {
     console.log("Name save error:", error);
