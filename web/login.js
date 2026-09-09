@@ -12,17 +12,15 @@ document.getElementById("signupBtn").addEventListener("click", async () => {
 
   if (error) {
     console.log("Signup error:", error);
-  } else {
-    // account created — now save their display name to profiles
-    const displayName = document.getElementById("displayName").value;
-
+    } else {
+    // create their profile row with a placeholder name (they set it on the picks page)
     await supabaseClient.from("profiles").insert({
       id: data.user.id,
-      display_name: "Player",   // placeholder until they set it on the picks page
+      display_name: "Player",
     });
 
-    console.log("Signed up + profile created:", displayName);
-    window.location.href = "index.html";   // send them straight to the games
+    console.log("Signed up + profile created");
+    window.location.href = "index.html";
   }
 });
 
