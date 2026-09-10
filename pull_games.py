@@ -37,13 +37,15 @@ def parse_game(event):
     final = comp["status"]["type"]["completed"]
 
     # Scores and winner only exist once the game is over.
+    # always pull current scores (live or final), if ESPN has them
+    home_score = int(home["score"]) if home.get("score") not in (None, "") else None
+    away_score = int(away["score"]) if away.get("score") not in (None, "") else None
+
+    # winner only once the game is final
     winner = None
-    home_score = away_score = None
     if final:
-        home_score = int(home["score"])
-        away_score = int(away["score"])
         w = next((c for c in comp["competitors"] if c.get("winner")), None)
-        winner = w["team"]["abbreviation"] if w else None  # None means a tie
+        winner = w["team"]["abbreviation"] if w else None
 
     return {
         "id":          event["id"],            # ESPN's unique game id

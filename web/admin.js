@@ -3,8 +3,12 @@ const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_E4G8S_HtDAdNB294_QomLA_vLlHMuIR
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
 // how many weeks to show across the top
-const WEEKS = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
+const WEEKS = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22];
 
+// custom labels for playoff weeks (19-22 → PO1-PO4)
+const WEEK_LABELS = {
+  19: "PO1", 20: "PO2", 21: "PO3", 22: "PO4"
+};
 async function loadAdmin() {
   // 1. must be logged in
   const { data: userData } = await supabaseClient.auth.getUser();
@@ -39,7 +43,7 @@ async function loadAdmin() {
   // 5. build the grid
   let html = "<table><tr><th>Player</th>";
   for (const w of WEEKS) {
-    html += `<th>Wk ${w}</th>`;
+    html += `<th>${WEEK_LABELS[w] || "Wk " + w}</th>`;
   }
   html += "</tr>";
 

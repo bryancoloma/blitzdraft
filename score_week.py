@@ -12,9 +12,15 @@ load_dotenv()
 SUPABASE_URL = os.environ["SUPABASE_URL"]
 SUPABASE_KEY = os.environ["SUPABASE_SECRET_KEY"]   # secret key = sees ALL picks, bypasses RLS
 
-WEEK = 1
+WEEK = 1   # fallback only — main() overwrites this from the settings table
 
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
+
+
+# read the current week from the settings table (set by pull_games.py)
+def get_current_week():
+    result = supabase.table("settings").select("value").eq("key", "current_week").single().execute()
+    return int(result.data["value"])
 
 
 # fetch games and build the winners lookup.
@@ -43,6 +49,7 @@ def score_everyone(winners):
             tally[user] += 1        # correct pick = 1 point
     return tally
 
+
 def get_tiebreaker_data(week):
     """Returns each player's guesses, plus the actual results to compare against."""
     # everyone's tiebreaker guesses for this week
@@ -53,6 +60,7 @@ def get_tiebreaker_data(week):
     games = supabase.table("games").select("*").eq("week", week).eq("final", True).execute()
 
     return guesses, games.data
+
 
 def compute_actuals(games):
     """From finished games, get the last game's total points and the highest-scoring team."""
@@ -75,6 +83,7 @@ def compute_actuals(games):
                 top_team = abbr
 
     return last_total, top_team
+
 
 def rank_players(tally, guesses, last_total, top_team):
     """Rank players: most wins first, break ties by closest total-points guess, then most-points team."""
@@ -99,8 +108,12 @@ def rank_players(tally, guesses, last_total, top_team):
     # assign rank 1, 2, 3... in that order
     return {user_id: i + 1 for i, user_id in enumerate(ranked)}
 
+
 # save the tally and run it.
 def main():
+    global WEEK
+    WEEK = get_current_week()   # auto-detect the current week from settings
+
     winners = get_winners()
     tally = score_everyone(winners)
 
