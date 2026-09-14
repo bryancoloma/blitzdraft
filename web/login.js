@@ -38,3 +38,25 @@ document.getElementById("loginBtn").addEventListener("click", async () => {
     window.location.href = "index.html";   // ← redirect to the games page
   }
 });
+
+// FORGOT PASSWORD — send reset email
+document.getElementById("forgotLink").addEventListener("click", async (e) => {
+  e.preventDefault();
+
+  const email = document.getElementById("email").value;
+  if (!email) {
+    alert("Enter your email first, then click Forgot password.");
+    return;
+  }
+
+  const { error } = await supabaseClient.auth.resetPasswordForEmail(email, {
+    redirectTo: "https://bryancoloma.github.io/blitzdraft/web/reset.html"
+  });
+
+  if (error) {
+    console.log("Reset error:", error);
+    alert("Something went wrong. Try again.");
+  } else {
+    alert("Password reset email sent! Check your inbox (and spam folder).");
+  }
+});
