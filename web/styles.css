@@ -225,3 +225,13 @@ nav {
   width: 55px;
   text-align: center;
 }
+
+#weekSelector {
+  font-size: 18px;
+  margin: 12px 0;
+}
+
+#weekPicker {
+  font-size: 18px;
+  padding: 4px 8px;
+}

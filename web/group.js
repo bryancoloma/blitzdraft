@@ -12,7 +12,27 @@ async function getCurrentWeek() {
 }
 
 async function showGroupPicks() {
-  const currentWeek = await getCurrentWeek();
+  const actualCurrentWeek = await getCurrentWeek();
+
+  // check if a week was picked in the dropdown (via the URL), else use current
+  const urlParams = new URLSearchParams(window.location.search);
+  const currentWeek = parseInt(urlParams.get("week")) || actualCurrentWeek;
+
+  // build the week dropdown: weeks 1 through the actual current week
+  const picker = document.getElementById("weekPicker");
+  picker.innerHTML = "";
+  for (let w = 1; w <= actualCurrentWeek; w++) {
+    const opt = document.createElement("option");
+    opt.value = w;
+    opt.textContent = `Week ${w}`;
+    if (w === currentWeek) opt.selected = true;
+    picker.appendChild(opt);
+  }
+
+  // when they pick a week, reload the page pointing at that week
+  picker.onchange = () => {
+    window.location.href = `group.html?week=${picker.value}`;
+  };
   // this week's games
   const { data: games } = await supabaseClient
     .from("games")
