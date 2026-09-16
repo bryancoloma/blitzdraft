@@ -53,13 +53,15 @@ async function showGroupPicks() {
   // everyone's rank this week (computed by the scorer)
   const { data: scores } = await supabaseClient
     .from("scores")
-    .select("user_id, rank")
+    .select("user_id, rank, wins")
     .eq("week", currentWeek);
 
-  // lookup: rank by user_id
+  // lookups: rank (for sorting) and wins (for the column)
   const rankLookup = {};
+  const winsLookup = {};
   for (const s of scores) {
     rankLookup[s.user_id] = s.rank;
+    winsLookup[s.user_id] = s.wins;
   }
 
   // sort players by rank (rank 1 = winner on top). Unranked players go last.
@@ -104,9 +106,10 @@ async function showGroupPicks() {
   for (const game of games) {
     html += `<th>${game.away_abbr}<br>@${game.home_abbr}</th>`;
   }
-    if (lastStarted) {
+  if (lastStarted) {
     html += `<th>Total Pts</th><th>Most Pts Team</th>`;
   }
+  html += `<th>Total Wins</th>`;
   html += "</tr>";
 
   // one row per player
@@ -125,10 +128,12 @@ async function showGroupPicks() {
       html += `<td class="${cellClass}">${pick}</td>`;
     }
 
-      if (lastStarted) {
+    if (lastStarted) {
       const tb = tbLookup[profile.id] || {};
       html += `<td>${tb.guess ?? ""}</td><td>${tb.most_points_team ?? ""}</td>`;
     }
+
+    html += `<td><strong>${winsLookup[profile.id] ?? 0}</strong></td>`;
 
     html += "</tr>";
   }
