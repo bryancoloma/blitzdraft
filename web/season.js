@@ -6,7 +6,7 @@ async function showSeason() {
   // get ALL score rows (every week, every player)
   const { data: scores } = await supabaseClient
     .from("scores")
-    .select("user_id, week, wins");
+    .select("user_id, week, wins, rank");
 
   // get names
   const { data: profiles } = await supabaseClient
@@ -23,6 +23,14 @@ async function showSeason() {
   for (const row of scores) {
     if (!byPlayer[row.user_id]) byPlayer[row.user_id] = {};
     byPlayer[row.user_id][row.week] = row.wins;
+  }
+
+// who won each week? { week: winning_user_id } — rank 1 that week
+  const weekWinner = {};
+  for (const row of scores) {
+    if (row.rank === 1) {
+      weekWinner[row.week] = row.user_id;
+    }
   }
 
   const weeks = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18];
@@ -48,7 +56,8 @@ async function showSeason() {
     for (const w of weeks) {
       const wins = byPlayer[userId][w] || 0;
       total += wins;
-      html += `<td>${wins}</td>`;
+      const trophy = (weekWinner[w] === userId && wins > 0) ? "   🏆" : "";
+      html += `<td>${wins}${trophy}</td>`;
     }
 
     html += `<td>${total}</td></tr>`;
