@@ -8,6 +8,22 @@ async function showSeason() {
     .from("scores")
     .select("user_id, week, wins, rank");
 
+  // get all games to determine which weeks are fully finished
+  const { data: games } = await supabaseClient
+    .from("games")
+    .select("week, final");
+
+  // a week is "done" only if it has games AND all of them are final
+  const weekDone = {};
+  const weekGames = {};
+  for (const g of games) {
+    if (!weekGames[g.week]) weekGames[g.week] = [];
+    weekGames[g.week].push(g.final);
+  }
+  for (const w in weekGames) {
+    weekDone[w] = weekGames[w].every(f => f === true);
+  }
+
   // get names
   const { data: profiles } = await supabaseClient
     .from("profiles")
@@ -56,7 +72,7 @@ async function showSeason() {
     for (const w of weeks) {
       const wins = byPlayer[userId][w] || 0;
       total += wins;
-      const trophy = (weekWinner[w] === userId && wins > 0) ? "   🏆" : "";
+      const trophy = (weekWinner[w] === userId && wins > 0 && weekDone[w]) ? "   🏆" : "";
       html += `<td>${wins}${trophy}</td>`;
     }
 
