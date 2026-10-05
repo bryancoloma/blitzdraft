@@ -179,13 +179,17 @@ async function fetchGames() {
     document.getElementById("tbMostPoints").value = savedTb.most_points_team ?? "";
   }
 
-    // lock tiebreaker inputs once the LAST game of the week has started
-  const lastGame = data[data.length - 1];   // games are sorted by kickoff, so last = latest
-  const lastKickoff = new Date(lastGame.kickoff_utc);
-  const lastLockTime = new Date(lastKickoff.getTime() - 5 * 60 * 1000);
-
+  // lock TOTAL POINTS input once the LAST game of the week has started
+  const lastGame = data[data.length - 1];   // games sorted by kickoff, so last = latest
+  const lastLockTime = new Date(new Date(lastGame.kickoff_utc).getTime() - 5 * 60 * 1000);
   if (new Date() > lastLockTime) {
     document.getElementById("tbGuess").disabled = true;
+  }
+
+  // lock MOST POINTS TEAM dropdown once the FIRST game of the week has started
+  const firstGame = data[0];   // first in the sorted list = earliest kickoff
+  const firstKickoff = new Date(firstGame.kickoff_utc);
+  if (new Date() >= firstKickoff) {
     document.getElementById("tbMostPoints").disabled = true;
   }
 }
