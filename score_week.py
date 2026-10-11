@@ -117,7 +117,12 @@ def rank_players(tally, guesses, last_total, top_team):
 # save the tally and run it.
 def main():
     global WEEK
-    WEEK = get_current_week()   # auto-detect the current week from settings
+    # allow a week to be passed on the command line, else auto-detect
+    import sys
+    if len(sys.argv) > 1:
+        WEEK = int(sys.argv[1])
+    else:
+        WEEK = get_current_week()
 
     winners = get_winners()
     tally = score_everyone(winners)
