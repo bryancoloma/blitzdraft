@@ -37,16 +37,21 @@ def get_winners():
 
 # fetch everyone's picks and count wins per player.
 def score_everyone(winners):
-    """Returns { user_id: win_count } for all players."""
-    result = supabase.table("picks").select("user_id, game_id, picked_team").execute()
+    """Returns { user_id: win_count } for all players (this week's games only)."""
+    # only fetch picks for this week's finished games — avoids the 1000-row cap
+    game_ids = list(winners.keys())
+    if not game_ids:
+        games = supabase.table("games").select("id").eq("week", WEEK).execute()
+        game_ids = [g["id"] for g in games.data]
+
+    result = supabase.table("picks").select("user_id, game_id, picked_team").in_("game_id", game_ids).execute()
 
     tally = {}
     for pick in result.data:
         user = pick["user_id"]
-        tally.setdefault(user, 0)   # start them at 0 if this is a new player.
-
+        tally.setdefault(user, 0)
         if winners.get(pick["game_id"]) == pick["picked_team"]:
-            tally[user] += 1        # correct pick = 1 point
+            tally[user] += 1
     return tally
 
 
