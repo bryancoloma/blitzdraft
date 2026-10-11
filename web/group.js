@@ -40,10 +40,12 @@ async function showGroupPicks() {
     .eq("week", currentWeek)
     .order("kickoff_utc");
 
-  // everyone's picks
+  // everyone's picks FOR THIS WEEK's games only (avoids the 1000-row cap)
+  const gameIds = games.map(g => g.id);
   const { data: picks } = await supabaseClient
     .from("picks")
-    .select("user_id, game_id, picked_team");
+    .select("user_id, game_id, picked_team")
+    .in("game_id", gameIds);
 
   // everyone's names
   const { data: profiles } = await supabaseClient
