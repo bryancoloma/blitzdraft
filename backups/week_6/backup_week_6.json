@@ -1,0 +1,2077 @@
+{
+  "games": [
+    {
+      "id": "401872998",
+      "week": 6,
+      "season_type": 2,
+      "kickoff_utc": "2026-10-18T17:00:00+00:00",
+      "home_team": "Philadelphia Eagles",
+      "home_abbr": "PHI",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/phi.png",
+      "away_team": "Carolina Panthers",
+      "away_abbr": "CAR",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/car.png",
+      "home_score": 14,
+      "away_score": 25,
+      "final": true,
+      "winner": "CAR"
+    },
+    {
+      "id": "401873002",
+      "week": 6,
+      "season_type": 2,
+      "kickoff_utc": "2026-10-18T17:00:00+00:00",
+      "home_team": "Tampa Bay Buccaneers",
+      "home_abbr": "TB",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/tb.png",
+      "away_team": "Pittsburgh Steelers",
+      "away_abbr": "PIT",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/pit.png",
+      "home_score": 19,
+      "away_score": 26,
+      "final": true,
+      "winner": "PIT"
+    },
+    {
+      "id": "401873008",
+      "week": 6,
+      "season_type": 2,
+      "kickoff_utc": "2026-10-20T00:15:00+00:00",
+      "home_team": "San Francisco 49ers",
+      "home_abbr": "SF",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/sf.png",
+      "away_team": "Washington Commanders",
+      "away_abbr": "WSH",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/wsh.png",
+      "home_score": 23,
+      "away_score": 17,
+      "final": true,
+      "winner": "SF"
+    },
+    {
+      "id": "401873006",
+      "week": 6,
+      "season_type": 2,
+      "kickoff_utc": "2026-10-18T20:25:00+00:00",
+      "home_team": "Kansas City Chiefs",
+      "home_abbr": "KC",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/kc.png",
+      "away_team": "Los Angeles Chargers",
+      "away_abbr": "LAC",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/lac.png",
+      "home_score": 22,
+      "away_score": 6,
+      "final": true,
+      "winner": "KC"
+    },
+    {
+      "id": "401873004",
+      "week": 6,
+      "season_type": 2,
+      "kickoff_utc": "2026-10-18T20:05:00+00:00",
+      "home_team": "Los Angeles Rams",
+      "home_abbr": "LAR",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/lar.png",
+      "away_team": "Arizona Cardinals",
+      "away_abbr": "ARI",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ari.png",
+      "home_score": 16,
+      "away_score": 18,
+      "final": true,
+      "winner": "ARI"
+    },
+    {
+      "id": "401873005",
+      "week": 6,
+      "season_type": 2,
+      "kickoff_utc": "2026-10-18T20:25:00+00:00",
+      "home_team": "Las Vegas Raiders",
+      "home_abbr": "LV",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/lv.png",
+      "away_team": "Buffalo Bills",
+      "away_abbr": "BUF",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/buf.png",
+      "home_score": 30,
+      "away_score": 33,
+      "final": true,
+      "winner": "BUF"
+    },
+    {
+      "id": "401873007",
+      "week": 6,
+      "season_type": 2,
+      "kickoff_utc": "2026-10-19T00:20:00+00:00",
+      "home_team": "Green Bay Packers",
+      "home_abbr": "GB",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/gb.png",
+      "away_team": "Dallas Cowboys",
+      "away_abbr": "DAL",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/dal.png",
+      "home_score": 23,
+      "away_score": 13,
+      "final": true,
+      "winner": "GB"
+    },
+    {
+      "id": "401872995",
+      "week": 6,
+      "season_type": 2,
+      "kickoff_utc": "2026-10-16T00:15:00+00:00",
+      "home_team": "Denver Broncos",
+      "home_abbr": "DEN",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/den.png",
+      "away_team": "Seattle Seahawks",
+      "away_abbr": "SEA",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/sea.png",
+      "home_score": 17,
+      "away_score": 14,
+      "final": true,
+      "winner": "DEN"
+    },
+    {
+      "id": "401872996",
+      "week": 6,
+      "season_type": 2,
+      "kickoff_utc": "2026-10-18T13:30:00+00:00",
+      "home_team": "Jacksonville Jaguars",
+      "home_abbr": "JAX",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/jax.png",
+      "away_team": "Houston Texans",
+      "away_abbr": "HOU",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/hou.png",
+      "home_score": 31,
+      "away_score": 34,
+      "final": true,
+      "winner": "HOU"
+    },
+    {
+      "id": "401872999",
+      "week": 6,
+      "season_type": 2,
+      "kickoff_utc": "2026-10-18T17:00:00+00:00",
+      "home_team": "Atlanta Falcons",
+      "home_abbr": "ATL",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/atl.png",
+      "away_team": "Chicago Bears",
+      "away_abbr": "CHI",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/chi.png",
+      "home_score": 23,
+      "away_score": 31,
+      "final": true,
+      "winner": "CHI"
+    },
+    {
+      "id": "401872997",
+      "week": 6,
+      "season_type": 2,
+      "kickoff_utc": "2026-10-18T17:00:00+00:00",
+      "home_team": "Cleveland Browns",
+      "home_abbr": "CLE",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/cle.png",
+      "away_team": "Baltimore Ravens",
+      "away_abbr": "BAL",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/bal.png",
+      "home_score": 13,
+      "away_score": 10,
+      "final": true,
+      "winner": "CLE"
+    },
+    {
+      "id": "401873003",
+      "week": 6,
+      "season_type": 2,
+      "kickoff_utc": "2026-10-18T17:00:00+00:00",
+      "home_team": "Indianapolis Colts",
+      "home_abbr": "IND",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png",
+      "away_team": "Tennessee Titans",
+      "away_abbr": "TEN",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ten.png",
+      "home_score": 20,
+      "away_score": 26,
+      "final": true,
+      "winner": "TEN"
+    },
+    {
+      "id": "401873001",
+      "week": 6,
+      "season_type": 2,
+      "kickoff_utc": "2026-10-18T17:00:00+00:00",
+      "home_team": "New England Patriots",
+      "home_abbr": "NE",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ne.png",
+      "away_team": "New York Jets",
+      "away_abbr": "NYJ",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/nyj.png",
+      "home_score": 26,
+      "away_score": 19,
+      "final": true,
+      "winner": "NE"
+    },
+    {
+      "id": "401873000",
+      "week": 6,
+      "season_type": 2,
+      "kickoff_utc": "2026-10-18T17:00:00+00:00",
+      "home_team": "New York Giants",
+      "home_abbr": "NYG",
+      "home_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/nyg.png",
+      "away_team": "New Orleans Saints",
+      "away_abbr": "NO",
+      "away_logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/no.png",
+      "home_score": 27,
+      "away_score": 34,
+      "final": true,
+      "winner": "NO"
+    }
+  ],
+  "scores": [
+    {
+      "id": 4315,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "week": 6,
+      "wins": 7,
+      "rank": 10
+    },
+    {
+      "id": 4318,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "week": 6,
+      "wins": 6,
+      "rank": 13
+    },
+    {
+      "id": 4324,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "week": 6,
+      "wins": 8,
+      "rank": 5
+    },
+    {
+      "id": 4337,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "week": 6,
+      "wins": 6,
+      "rank": 14
+    },
+    {
+      "id": 4343,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "week": 6,
+      "wins": 8,
+      "rank": 8
+    },
+    {
+      "id": 4350,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "week": 6,
+      "wins": 8,
+      "rank": 4
+    },
+    {
+      "id": 4365,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "week": 6,
+      "wins": 6,
+      "rank": 15
+    },
+    {
+      "id": 4374,
+      "user_id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "week": 6,
+      "wins": 9,
+      "rank": 1
+    },
+    {
+      "id": 4384,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "week": 6,
+      "wins": 8,
+      "rank": 2
+    },
+    {
+      "id": 4385,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "week": 6,
+      "wins": 8,
+      "rank": 6
+    },
+    {
+      "id": 4659,
+      "user_id": "bac24cea-1c92-4a66-8018-3684b954cbda",
+      "week": 6,
+      "wins": 7,
+      "rank": 11
+    },
+    {
+      "id": 4317,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "week": 6,
+      "wins": 7,
+      "rank": 12
+    },
+    {
+      "id": 4387,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "week": 6,
+      "wins": 7,
+      "rank": 9
+    },
+    {
+      "id": 4386,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "week": 6,
+      "wins": 8,
+      "rank": 3
+    },
+    {
+      "id": 4427,
+      "user_id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "week": 6,
+      "wins": 8,
+      "rank": 7
+    }
+  ],
+  "tiebreakers": [
+    {
+      "id": 170,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "week": 6,
+      "guess": 38,
+      "most_points_team": "Kansas City Chiefs"
+    },
+    {
+      "id": 187,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "week": 6,
+      "guess": 53,
+      "most_points_team": "San Francisco 49ers"
+    },
+    {
+      "id": 172,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "week": 6,
+      "guess": 50,
+      "most_points_team": "Los Angeles Rams"
+    },
+    {
+      "id": 173,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "week": 6,
+      "guess": 51,
+      "most_points_team": "Los Angeles Rams"
+    },
+    {
+      "id": 174,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "week": 6,
+      "guess": 56,
+      "most_points_team": "New England Patriots"
+    },
+    {
+      "id": 176,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "week": 6,
+      "guess": 60,
+      "most_points_team": "Los Angeles Rams"
+    },
+    {
+      "id": 177,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "week": 6,
+      "guess": 50,
+      "most_points_team": "Los Angeles Rams"
+    },
+    {
+      "id": 178,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "week": 6,
+      "guess": 56,
+      "most_points_team": "Buffalo Bills"
+    },
+    {
+      "id": 186,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "week": 6,
+      "guess": 42,
+      "most_points_team": "Buffalo Bills"
+    },
+    {
+      "id": 190,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "week": 6,
+      "guess": 40,
+      "most_points_team": "Indianapolis Colts"
+    },
+    {
+      "id": 188,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "week": 6,
+      "guess": 47,
+      "most_points_team": "Kansas City Chiefs"
+    },
+    {
+      "id": 192,
+      "user_id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "week": 6,
+      "guess": 57,
+      "most_points_team": null
+    },
+    {
+      "id": 194,
+      "user_id": "bac24cea-1c92-4a66-8018-3684b954cbda",
+      "week": 6,
+      "guess": 49,
+      "most_points_team": null
+    },
+    {
+      "id": 171,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "week": 6,
+      "guess": 52,
+      "most_points_team": "Los Angeles Rams"
+    }
+  ],
+  "payments": [
+    {
+      "id": 18,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "week": 6,
+      "paid": true
+    },
+    {
+      "id": 39,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "week": 6,
+      "paid": true
+    },
+    {
+      "id": 88,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "week": 6,
+      "paid": true
+    },
+    {
+      "id": 108,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "week": 6,
+      "paid": true
+    },
+    {
+      "id": 137,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "week": 6,
+      "paid": true
+    },
+    {
+      "id": 173,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "week": 6,
+      "paid": true
+    },
+    {
+      "id": 174,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "week": 6,
+      "paid": true
+    },
+    {
+      "id": 175,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "week": 6,
+      "paid": true
+    },
+    {
+      "id": 176,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "week": 6,
+      "paid": true
+    },
+    {
+      "id": 177,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "week": 6,
+      "paid": true
+    },
+    {
+      "id": 178,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "week": 6,
+      "paid": true
+    },
+    {
+      "id": 191,
+      "user_id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "week": 6,
+      "paid": true
+    },
+    {
+      "id": 193,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "week": 6,
+      "paid": true
+    },
+    {
+      "id": 194,
+      "user_id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "week": 6,
+      "paid": true
+    }
+  ],
+  "picks": [
+    {
+      "id": 2995,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "game_id": "401872995",
+      "picked_team": "SEA",
+      "created_at": "2026-10-13T04:03:12.030215+00:00"
+    },
+    {
+      "id": 2996,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "game_id": "401872996",
+      "picked_team": "JAX",
+      "created_at": "2026-10-13T04:03:12.030215+00:00"
+    },
+    {
+      "id": 2997,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "game_id": "401872997",
+      "picked_team": "BAL",
+      "created_at": "2026-10-13T04:03:12.030215+00:00"
+    },
+    {
+      "id": 2998,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "game_id": "401872998",
+      "picked_team": "PHI",
+      "created_at": "2026-10-13T04:03:12.030215+00:00"
+    },
+    {
+      "id": 2999,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "game_id": "401872999",
+      "picked_team": "ATL",
+      "created_at": "2026-10-13T04:03:12.030215+00:00"
+    },
+    {
+      "id": 3000,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "game_id": "401873000",
+      "picked_team": "NYG",
+      "created_at": "2026-10-13T04:03:12.030215+00:00"
+    },
+    {
+      "id": 3001,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "game_id": "401873001",
+      "picked_team": "NE",
+      "created_at": "2026-10-13T04:03:12.030215+00:00"
+    },
+    {
+      "id": 3002,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "game_id": "401873002",
+      "picked_team": "PIT",
+      "created_at": "2026-10-13T04:03:12.030215+00:00"
+    },
+    {
+      "id": 3003,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "game_id": "401873003",
+      "picked_team": "TEN",
+      "created_at": "2026-10-13T04:03:12.030215+00:00"
+    },
+    {
+      "id": 3004,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "game_id": "401873004",
+      "picked_team": "LAR",
+      "created_at": "2026-10-13T04:03:12.030215+00:00"
+    },
+    {
+      "id": 3005,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "game_id": "401873005",
+      "picked_team": "BUF",
+      "created_at": "2026-10-13T04:03:12.030215+00:00"
+    },
+    {
+      "id": 3006,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "game_id": "401873006",
+      "picked_team": "KC",
+      "created_at": "2026-10-13T04:03:12.030215+00:00"
+    },
+    {
+      "id": 3007,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "game_id": "401873007",
+      "picked_team": "GB",
+      "created_at": "2026-10-13T04:03:12.030215+00:00"
+    },
+    {
+      "id": 3008,
+      "user_id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "game_id": "401873008",
+      "picked_team": "SF",
+      "created_at": "2026-10-13T04:03:12.030215+00:00"
+    },
+    {
+      "id": 3023,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "game_id": "401872995",
+      "picked_team": "SEA",
+      "created_at": "2026-10-13T13:11:17.958767+00:00"
+    },
+    {
+      "id": 3024,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "game_id": "401872996",
+      "picked_team": "JAX",
+      "created_at": "2026-10-13T13:11:17.958767+00:00"
+    },
+    {
+      "id": 3025,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "game_id": "401872997",
+      "picked_team": "BAL",
+      "created_at": "2026-10-13T13:11:17.958767+00:00"
+    },
+    {
+      "id": 3026,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "game_id": "401872998",
+      "picked_team": "PHI",
+      "created_at": "2026-10-13T13:11:17.958767+00:00"
+    },
+    {
+      "id": 3027,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "game_id": "401872999",
+      "picked_team": "ATL",
+      "created_at": "2026-10-13T13:11:17.958767+00:00"
+    },
+    {
+      "id": 3028,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "game_id": "401873000",
+      "picked_team": "NYG",
+      "created_at": "2026-10-13T13:11:17.958767+00:00"
+    },
+    {
+      "id": 3029,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "game_id": "401873001",
+      "picked_team": "NE",
+      "created_at": "2026-10-13T13:11:17.958767+00:00"
+    },
+    {
+      "id": 3030,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "game_id": "401873002",
+      "picked_team": "PIT",
+      "created_at": "2026-10-13T13:11:17.958767+00:00"
+    },
+    {
+      "id": 3031,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "game_id": "401873003",
+      "picked_team": "IND",
+      "created_at": "2026-10-13T13:11:17.958767+00:00"
+    },
+    {
+      "id": 3032,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "game_id": "401873004",
+      "picked_team": "LAR",
+      "created_at": "2026-10-13T13:11:17.958767+00:00"
+    },
+    {
+      "id": 3033,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "game_id": "401873005",
+      "picked_team": "BUF",
+      "created_at": "2026-10-13T13:11:17.958767+00:00"
+    },
+    {
+      "id": 3034,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "game_id": "401873006",
+      "picked_team": "KC",
+      "created_at": "2026-10-13T13:11:17.958767+00:00"
+    },
+    {
+      "id": 3035,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "game_id": "401873007",
+      "picked_team": "GB",
+      "created_at": "2026-10-13T13:11:17.958767+00:00"
+    },
+    {
+      "id": 3036,
+      "user_id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "game_id": "401873008",
+      "picked_team": "SF",
+      "created_at": "2026-10-13T13:11:17.958767+00:00"
+    },
+    {
+      "id": 3037,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "game_id": "401872995",
+      "picked_team": "SEA",
+      "created_at": "2026-10-13T23:11:27.33202+00:00"
+    },
+    {
+      "id": 3038,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "game_id": "401872996",
+      "picked_team": "JAX",
+      "created_at": "2026-10-13T23:11:27.33202+00:00"
+    },
+    {
+      "id": 3039,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "game_id": "401872997",
+      "picked_team": "BAL",
+      "created_at": "2026-10-13T23:11:27.33202+00:00"
+    },
+    {
+      "id": 3040,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "game_id": "401872998",
+      "picked_team": "PHI",
+      "created_at": "2026-10-13T23:11:27.33202+00:00"
+    },
+    {
+      "id": 3041,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "game_id": "401872999",
+      "picked_team": "CHI",
+      "created_at": "2026-10-13T23:11:27.33202+00:00"
+    },
+    {
+      "id": 3042,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "game_id": "401873000",
+      "picked_team": "NO",
+      "created_at": "2026-10-13T23:11:27.33202+00:00"
+    },
+    {
+      "id": 3043,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "game_id": "401873001",
+      "picked_team": "NE",
+      "created_at": "2026-10-13T23:11:27.33202+00:00"
+    },
+    {
+      "id": 3044,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "game_id": "401873002",
+      "picked_team": "PIT",
+      "created_at": "2026-10-13T23:11:27.33202+00:00"
+    },
+    {
+      "id": 3045,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "game_id": "401873003",
+      "picked_team": "IND",
+      "created_at": "2026-10-13T23:11:27.33202+00:00"
+    },
+    {
+      "id": 3046,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "game_id": "401873004",
+      "picked_team": "LAR",
+      "created_at": "2026-10-13T23:11:27.33202+00:00"
+    },
+    {
+      "id": 3047,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "game_id": "401873005",
+      "picked_team": "BUF",
+      "created_at": "2026-10-13T23:11:27.33202+00:00"
+    },
+    {
+      "id": 3048,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "game_id": "401873006",
+      "picked_team": "KC",
+      "created_at": "2026-10-13T23:11:27.33202+00:00"
+    },
+    {
+      "id": 3049,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "game_id": "401873007",
+      "picked_team": "GB",
+      "created_at": "2026-10-13T23:11:27.33202+00:00"
+    },
+    {
+      "id": 3050,
+      "user_id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "game_id": "401873008",
+      "picked_team": "SF",
+      "created_at": "2026-10-13T23:11:27.33202+00:00"
+    },
+    {
+      "id": 3052,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "game_id": "401872995",
+      "picked_team": "SEA",
+      "created_at": "2026-10-14T18:08:24.700452+00:00"
+    },
+    {
+      "id": 3053,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "game_id": "401872996",
+      "picked_team": "JAX",
+      "created_at": "2026-10-14T18:08:24.700452+00:00"
+    },
+    {
+      "id": 3054,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "game_id": "401872997",
+      "picked_team": "BAL",
+      "created_at": "2026-10-14T18:08:24.700452+00:00"
+    },
+    {
+      "id": 3055,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "game_id": "401872998",
+      "picked_team": "CAR",
+      "created_at": "2026-10-14T18:08:24.700452+00:00"
+    },
+    {
+      "id": 3056,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "game_id": "401872999",
+      "picked_team": "ATL",
+      "created_at": "2026-10-14T18:08:24.700452+00:00"
+    },
+    {
+      "id": 3057,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "game_id": "401873000",
+      "picked_team": "NYG",
+      "created_at": "2026-10-14T18:08:24.700452+00:00"
+    },
+    {
+      "id": 3058,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "game_id": "401873001",
+      "picked_team": "NE",
+      "created_at": "2026-10-14T18:08:24.700452+00:00"
+    },
+    {
+      "id": 3059,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "game_id": "401873002",
+      "picked_team": "TB",
+      "created_at": "2026-10-14T18:08:24.700452+00:00"
+    },
+    {
+      "id": 3060,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "game_id": "401873003",
+      "picked_team": "IND",
+      "created_at": "2026-10-14T18:08:24.700452+00:00"
+    },
+    {
+      "id": 3061,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "game_id": "401873004",
+      "picked_team": "LAR",
+      "created_at": "2026-10-14T18:08:24.700452+00:00"
+    },
+    {
+      "id": 3062,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "game_id": "401873005",
+      "picked_team": "BUF",
+      "created_at": "2026-10-14T18:08:24.700452+00:00"
+    },
+    {
+      "id": 3063,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "game_id": "401873006",
+      "picked_team": "KC",
+      "created_at": "2026-10-14T18:08:24.700452+00:00"
+    },
+    {
+      "id": 3064,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "game_id": "401873007",
+      "picked_team": "GB",
+      "created_at": "2026-10-14T18:08:24.700452+00:00"
+    },
+    {
+      "id": 3065,
+      "user_id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "game_id": "401873008",
+      "picked_team": "SF",
+      "created_at": "2026-10-14T18:08:24.700452+00:00"
+    },
+    {
+      "id": 3079,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "game_id": "401872995",
+      "picked_team": "SEA",
+      "created_at": "2026-10-14T22:02:54.723904+00:00"
+    },
+    {
+      "id": 3080,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "game_id": "401872996",
+      "picked_team": "HOU",
+      "created_at": "2026-10-14T22:02:54.723904+00:00"
+    },
+    {
+      "id": 3081,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "game_id": "401872997",
+      "picked_team": "BAL",
+      "created_at": "2026-10-14T22:02:54.723904+00:00"
+    },
+    {
+      "id": 3082,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "game_id": "401872998",
+      "picked_team": "PHI",
+      "created_at": "2026-10-14T22:02:54.723904+00:00"
+    },
+    {
+      "id": 3083,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "game_id": "401872999",
+      "picked_team": "ATL",
+      "created_at": "2026-10-14T22:02:54.723904+00:00"
+    },
+    {
+      "id": 3084,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "game_id": "401873000",
+      "picked_team": "NO",
+      "created_at": "2026-10-14T22:02:54.723904+00:00"
+    },
+    {
+      "id": 3085,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "game_id": "401873001",
+      "picked_team": "NYJ",
+      "created_at": "2026-10-14T22:02:54.723904+00:00"
+    },
+    {
+      "id": 3086,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "game_id": "401873002",
+      "picked_team": "PIT",
+      "created_at": "2026-10-14T22:02:54.723904+00:00"
+    },
+    {
+      "id": 3087,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "game_id": "401873003",
+      "picked_team": "TEN",
+      "created_at": "2026-10-14T22:02:54.723904+00:00"
+    },
+    {
+      "id": 3088,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "game_id": "401873004",
+      "picked_team": "LAR",
+      "created_at": "2026-10-14T22:02:54.723904+00:00"
+    },
+    {
+      "id": 3089,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "game_id": "401873005",
+      "picked_team": "BUF",
+      "created_at": "2026-10-14T22:02:54.723904+00:00"
+    },
+    {
+      "id": 3090,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "game_id": "401873006",
+      "picked_team": "KC",
+      "created_at": "2026-10-14T22:02:54.723904+00:00"
+    },
+    {
+      "id": 3091,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "game_id": "401873007",
+      "picked_team": "GB",
+      "created_at": "2026-10-14T22:02:54.723904+00:00"
+    },
+    {
+      "id": 3092,
+      "user_id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "game_id": "401873008",
+      "picked_team": "SF",
+      "created_at": "2026-10-14T22:02:54.723904+00:00"
+    },
+    {
+      "id": 3093,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "game_id": "401872995",
+      "picked_team": "DEN",
+      "created_at": "2026-10-15T00:29:41.468+00:00"
+    },
+    {
+      "id": 3094,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "game_id": "401872996",
+      "picked_team": "JAX",
+      "created_at": "2026-10-15T00:29:41.468+00:00"
+    },
+    {
+      "id": 3095,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "game_id": "401872997",
+      "picked_team": "BAL",
+      "created_at": "2026-10-15T00:29:41.468+00:00"
+    },
+    {
+      "id": 3096,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "game_id": "401872998",
+      "picked_team": "PHI",
+      "created_at": "2026-10-15T00:29:41.468+00:00"
+    },
+    {
+      "id": 3097,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "game_id": "401872999",
+      "picked_team": "CHI",
+      "created_at": "2026-10-15T00:29:41.468+00:00"
+    },
+    {
+      "id": 3098,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "game_id": "401873000",
+      "picked_team": "NYG",
+      "created_at": "2026-10-15T00:29:41.468+00:00"
+    },
+    {
+      "id": 3099,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "game_id": "401873001",
+      "picked_team": "NE",
+      "created_at": "2026-10-15T00:29:41.468+00:00"
+    },
+    {
+      "id": 3100,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "game_id": "401873002",
+      "picked_team": "PIT",
+      "created_at": "2026-10-15T00:29:41.468+00:00"
+    },
+    {
+      "id": 3101,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "game_id": "401873003",
+      "picked_team": "IND",
+      "created_at": "2026-10-15T00:29:41.468+00:00"
+    },
+    {
+      "id": 3102,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "game_id": "401873004",
+      "picked_team": "ARI",
+      "created_at": "2026-10-15T00:29:41.468+00:00"
+    },
+    {
+      "id": 3103,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "game_id": "401873005",
+      "picked_team": "BUF",
+      "created_at": "2026-10-15T00:29:41.468+00:00"
+    },
+    {
+      "id": 3104,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "game_id": "401873006",
+      "picked_team": "LAC",
+      "created_at": "2026-10-15T00:29:41.468+00:00"
+    },
+    {
+      "id": 3105,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "game_id": "401873007",
+      "picked_team": "GB",
+      "created_at": "2026-10-15T00:29:41.468+00:00"
+    },
+    {
+      "id": 3106,
+      "user_id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "game_id": "401873008",
+      "picked_team": "SF",
+      "created_at": "2026-10-15T00:29:41.468+00:00"
+    },
+    {
+      "id": 3107,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "game_id": "401872995",
+      "picked_team": "SEA",
+      "created_at": "2026-10-15T02:46:11.511329+00:00"
+    },
+    {
+      "id": 3108,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "game_id": "401872996",
+      "picked_team": "JAX",
+      "created_at": "2026-10-15T02:46:11.511329+00:00"
+    },
+    {
+      "id": 3109,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "game_id": "401872997",
+      "picked_team": "CLE",
+      "created_at": "2026-10-15T02:46:11.511329+00:00"
+    },
+    {
+      "id": 3110,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "game_id": "401872998",
+      "picked_team": "PHI",
+      "created_at": "2026-10-15T02:46:11.511329+00:00"
+    },
+    {
+      "id": 3111,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "game_id": "401872999",
+      "picked_team": "CHI",
+      "created_at": "2026-10-15T02:46:11.511329+00:00"
+    },
+    {
+      "id": 3112,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "game_id": "401873000",
+      "picked_team": "NYG",
+      "created_at": "2026-10-15T02:46:11.511329+00:00"
+    },
+    {
+      "id": 3113,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "game_id": "401873001",
+      "picked_team": "NYJ",
+      "created_at": "2026-10-15T02:46:11.511329+00:00"
+    },
+    {
+      "id": 3114,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "game_id": "401873002",
+      "picked_team": "PIT",
+      "created_at": "2026-10-15T02:46:11.511329+00:00"
+    },
+    {
+      "id": 3115,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "game_id": "401873003",
+      "picked_team": "IND",
+      "created_at": "2026-10-15T02:46:11.511329+00:00"
+    },
+    {
+      "id": 3116,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "game_id": "401873004",
+      "picked_team": "LAR",
+      "created_at": "2026-10-15T02:46:11.511329+00:00"
+    },
+    {
+      "id": 3117,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "game_id": "401873005",
+      "picked_team": "BUF",
+      "created_at": "2026-10-15T02:46:11.511329+00:00"
+    },
+    {
+      "id": 3118,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "game_id": "401873006",
+      "picked_team": "LAC",
+      "created_at": "2026-10-15T02:46:11.511329+00:00"
+    },
+    {
+      "id": 3119,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "game_id": "401873007",
+      "picked_team": "GB",
+      "created_at": "2026-10-15T02:46:11.511329+00:00"
+    },
+    {
+      "id": 3120,
+      "user_id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "game_id": "401873008",
+      "picked_team": "SF",
+      "created_at": "2026-10-15T02:46:11.511329+00:00"
+    },
+    {
+      "id": 3135,
+      "user_id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "game_id": "401872995",
+      "picked_team": "SEA",
+      "created_at": "2026-10-15T12:34:29.459405+00:00"
+    },
+    {
+      "id": 3137,
+      "user_id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "game_id": "401872996",
+      "picked_team": "JAX",
+      "created_at": "2026-10-15T13:04:23.275747+00:00"
+    },
+    {
+      "id": 3138,
+      "user_id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "game_id": "401872997",
+      "picked_team": "BAL",
+      "created_at": "2026-10-15T13:04:23.275747+00:00"
+    },
+    {
+      "id": 3139,
+      "user_id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "game_id": "401872998",
+      "picked_team": "CAR",
+      "created_at": "2026-10-15T13:04:23.275747+00:00"
+    },
+    {
+      "id": 3140,
+      "user_id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "game_id": "401872999",
+      "picked_team": "CHI",
+      "created_at": "2026-10-15T13:04:23.275747+00:00"
+    },
+    {
+      "id": 3141,
+      "user_id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "game_id": "401873000",
+      "picked_team": "NO",
+      "created_at": "2026-10-15T13:04:23.275747+00:00"
+    },
+    {
+      "id": 3142,
+      "user_id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "game_id": "401873001",
+      "picked_team": "NE",
+      "created_at": "2026-10-15T13:04:23.275747+00:00"
+    },
+    {
+      "id": 3151,
+      "user_id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "game_id": "401873002",
+      "picked_team": "PIT",
+      "created_at": "2026-10-15T13:15:19.348875+00:00"
+    },
+    {
+      "id": 3143,
+      "user_id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "game_id": "401873003",
+      "picked_team": "IND",
+      "created_at": "2026-10-15T13:04:23.275747+00:00"
+    },
+    {
+      "id": 3153,
+      "user_id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "game_id": "401873004",
+      "picked_team": "LAR",
+      "created_at": "2026-10-15T13:15:19.348875+00:00"
+    },
+    {
+      "id": 3154,
+      "user_id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "game_id": "401873005",
+      "picked_team": "BUF",
+      "created_at": "2026-10-15T13:15:19.348875+00:00"
+    },
+    {
+      "id": 3155,
+      "user_id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "game_id": "401873006",
+      "picked_team": "KC",
+      "created_at": "2026-10-15T13:15:19.348875+00:00"
+    },
+    {
+      "id": 3168,
+      "user_id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "game_id": "401873007",
+      "picked_team": "GB",
+      "created_at": "2026-10-15T13:15:58.546951+00:00"
+    },
+    {
+      "id": 3169,
+      "user_id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "game_id": "401873008",
+      "picked_team": "SF",
+      "created_at": "2026-10-15T13:15:58.546951+00:00"
+    },
+    {
+      "id": 3198,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "game_id": "401872995",
+      "picked_team": "SEA",
+      "created_at": "2026-10-15T17:09:08.776494+00:00"
+    },
+    {
+      "id": 3199,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "game_id": "401872996",
+      "picked_team": "JAX",
+      "created_at": "2026-10-15T17:09:08.776494+00:00"
+    },
+    {
+      "id": 3200,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "game_id": "401872997",
+      "picked_team": "BAL",
+      "created_at": "2026-10-15T17:09:08.776494+00:00"
+    },
+    {
+      "id": 3201,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "game_id": "401872998",
+      "picked_team": "CAR",
+      "created_at": "2026-10-15T17:09:08.776494+00:00"
+    },
+    {
+      "id": 3202,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "game_id": "401872999",
+      "picked_team": "CHI",
+      "created_at": "2026-10-15T17:09:08.776494+00:00"
+    },
+    {
+      "id": 3203,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "game_id": "401873000",
+      "picked_team": "NO",
+      "created_at": "2026-10-15T17:09:08.776494+00:00"
+    },
+    {
+      "id": 3204,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "game_id": "401873001",
+      "picked_team": "NE",
+      "created_at": "2026-10-15T17:09:08.776494+00:00"
+    },
+    {
+      "id": 3205,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "game_id": "401873002",
+      "picked_team": "PIT",
+      "created_at": "2026-10-15T17:09:08.776494+00:00"
+    },
+    {
+      "id": 3206,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "game_id": "401873003",
+      "picked_team": "IND",
+      "created_at": "2026-10-15T17:09:08.776494+00:00"
+    },
+    {
+      "id": 3207,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "game_id": "401873004",
+      "picked_team": "LAR",
+      "created_at": "2026-10-15T17:09:08.776494+00:00"
+    },
+    {
+      "id": 3208,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "game_id": "401873005",
+      "picked_team": "BUF",
+      "created_at": "2026-10-15T17:09:08.776494+00:00"
+    },
+    {
+      "id": 3209,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "game_id": "401873006",
+      "picked_team": "KC",
+      "created_at": "2026-10-15T17:09:08.776494+00:00"
+    },
+    {
+      "id": 3210,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "game_id": "401873007",
+      "picked_team": "DAL",
+      "created_at": "2026-10-15T17:09:08.776494+00:00"
+    },
+    {
+      "id": 3211,
+      "user_id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "game_id": "401873008",
+      "picked_team": "SF",
+      "created_at": "2026-10-15T17:09:08.776494+00:00"
+    },
+    {
+      "id": 3212,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "game_id": "401872995",
+      "picked_team": "SEA",
+      "created_at": "2026-10-15T17:23:34.346078+00:00"
+    },
+    {
+      "id": 3284,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "game_id": "401872996",
+      "picked_team": "JAX",
+      "created_at": "2026-10-17T01:09:44.649647+00:00"
+    },
+    {
+      "id": 3285,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "game_id": "401872997",
+      "picked_team": "BAL",
+      "created_at": "2026-10-17T01:09:44.649647+00:00"
+    },
+    {
+      "id": 3286,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "game_id": "401872998",
+      "picked_team": "CAR",
+      "created_at": "2026-10-17T01:09:44.649647+00:00"
+    },
+    {
+      "id": 3287,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "game_id": "401872999",
+      "picked_team": "ATL",
+      "created_at": "2026-10-17T01:09:44.649647+00:00"
+    },
+    {
+      "id": 3288,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "game_id": "401873000",
+      "picked_team": "NO",
+      "created_at": "2026-10-17T01:09:44.649647+00:00"
+    },
+    {
+      "id": 3289,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "game_id": "401873001",
+      "picked_team": "NE",
+      "created_at": "2026-10-17T01:09:44.649647+00:00"
+    },
+    {
+      "id": 3290,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "game_id": "401873002",
+      "picked_team": "PIT",
+      "created_at": "2026-10-17T01:09:44.649647+00:00"
+    },
+    {
+      "id": 3291,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "game_id": "401873003",
+      "picked_team": "IND",
+      "created_at": "2026-10-17T01:09:44.649647+00:00"
+    },
+    {
+      "id": 3292,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "game_id": "401873004",
+      "picked_team": "LAR",
+      "created_at": "2026-10-17T01:09:44.649647+00:00"
+    },
+    {
+      "id": 3293,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "game_id": "401873005",
+      "picked_team": "BUF",
+      "created_at": "2026-10-17T01:09:44.649647+00:00"
+    },
+    {
+      "id": 3294,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "game_id": "401873006",
+      "picked_team": "KC",
+      "created_at": "2026-10-17T01:09:44.649647+00:00"
+    },
+    {
+      "id": 3295,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "game_id": "401873007",
+      "picked_team": "GB",
+      "created_at": "2026-10-17T01:09:44.649647+00:00"
+    },
+    {
+      "id": 3213,
+      "user_id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "game_id": "401873008",
+      "picked_team": "SF",
+      "created_at": "2026-10-15T17:23:34.346078+00:00"
+    },
+    {
+      "id": 3297,
+      "user_id": "bac24cea-1c92-4a66-8018-3684b954cbda",
+      "game_id": "401872996",
+      "picked_team": "HOU",
+      "created_at": "2026-10-17T07:15:05.757512+00:00"
+    },
+    {
+      "id": 3298,
+      "user_id": "bac24cea-1c92-4a66-8018-3684b954cbda",
+      "game_id": "401872997",
+      "picked_team": "BAL",
+      "created_at": "2026-10-17T07:15:05.757512+00:00"
+    },
+    {
+      "id": 3299,
+      "user_id": "bac24cea-1c92-4a66-8018-3684b954cbda",
+      "game_id": "401872998",
+      "picked_team": "CAR",
+      "created_at": "2026-10-17T07:15:05.757512+00:00"
+    },
+    {
+      "id": 3300,
+      "user_id": "bac24cea-1c92-4a66-8018-3684b954cbda",
+      "game_id": "401872999",
+      "picked_team": "ATL",
+      "created_at": "2026-10-17T07:15:05.757512+00:00"
+    },
+    {
+      "id": 3301,
+      "user_id": "bac24cea-1c92-4a66-8018-3684b954cbda",
+      "game_id": "401873000",
+      "picked_team": "NO",
+      "created_at": "2026-10-17T07:15:05.757512+00:00"
+    },
+    {
+      "id": 3302,
+      "user_id": "bac24cea-1c92-4a66-8018-3684b954cbda",
+      "game_id": "401873001",
+      "picked_team": "NE",
+      "created_at": "2026-10-17T07:15:05.757512+00:00"
+    },
+    {
+      "id": 3303,
+      "user_id": "bac24cea-1c92-4a66-8018-3684b954cbda",
+      "game_id": "401873002",
+      "picked_team": "TB",
+      "created_at": "2026-10-17T07:15:05.757512+00:00"
+    },
+    {
+      "id": 3304,
+      "user_id": "bac24cea-1c92-4a66-8018-3684b954cbda",
+      "game_id": "401873003",
+      "picked_team": "IND",
+      "created_at": "2026-10-17T07:15:05.757512+00:00"
+    },
+    {
+      "id": 3305,
+      "user_id": "bac24cea-1c92-4a66-8018-3684b954cbda",
+      "game_id": "401873004",
+      "picked_team": "LAR",
+      "created_at": "2026-10-17T07:15:05.757512+00:00"
+    },
+    {
+      "id": 3306,
+      "user_id": "bac24cea-1c92-4a66-8018-3684b954cbda",
+      "game_id": "401873005",
+      "picked_team": "BUF",
+      "created_at": "2026-10-17T07:15:05.757512+00:00"
+    },
+    {
+      "id": 3307,
+      "user_id": "bac24cea-1c92-4a66-8018-3684b954cbda",
+      "game_id": "401873006",
+      "picked_team": "KC",
+      "created_at": "2026-10-17T07:15:05.757512+00:00"
+    },
+    {
+      "id": 3308,
+      "user_id": "bac24cea-1c92-4a66-8018-3684b954cbda",
+      "game_id": "401873007",
+      "picked_team": "DAL",
+      "created_at": "2026-10-17T07:15:05.757512+00:00"
+    },
+    {
+      "id": 3309,
+      "user_id": "bac24cea-1c92-4a66-8018-3684b954cbda",
+      "game_id": "401873008",
+      "picked_team": "SF",
+      "created_at": "2026-10-17T07:15:05.757512+00:00"
+    },
+    {
+      "id": 3009,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "game_id": "401872995",
+      "picked_team": "SEA",
+      "created_at": "2026-10-13T05:39:47.776483+00:00"
+    },
+    {
+      "id": 3242,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "game_id": "401872995",
+      "picked_team": "SEA",
+      "created_at": "2026-10-15T20:04:59.638583+00:00"
+    },
+    {
+      "id": 3243,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "game_id": "401872996",
+      "picked_team": "JAX",
+      "created_at": "2026-10-15T20:04:59.638583+00:00"
+    },
+    {
+      "id": 3244,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "game_id": "401872997",
+      "picked_team": "BAL",
+      "created_at": "2026-10-15T20:04:59.638583+00:00"
+    },
+    {
+      "id": 3245,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "game_id": "401872998",
+      "picked_team": "CAR",
+      "created_at": "2026-10-15T20:04:59.638583+00:00"
+    },
+    {
+      "id": 3246,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "game_id": "401872999",
+      "picked_team": "CHI",
+      "created_at": "2026-10-15T20:04:59.638583+00:00"
+    },
+    {
+      "id": 3247,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "game_id": "401873000",
+      "picked_team": "NYG",
+      "created_at": "2026-10-15T20:04:59.638583+00:00"
+    },
+    {
+      "id": 3248,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "game_id": "401873001",
+      "picked_team": "NE",
+      "created_at": "2026-10-15T20:04:59.638583+00:00"
+    },
+    {
+      "id": 3249,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "game_id": "401873002",
+      "picked_team": "PIT",
+      "created_at": "2026-10-15T20:04:59.638583+00:00"
+    },
+    {
+      "id": 3250,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "game_id": "401873003",
+      "picked_team": "IND",
+      "created_at": "2026-10-15T20:04:59.638583+00:00"
+    },
+    {
+      "id": 3251,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "game_id": "401873004",
+      "picked_team": "LAR",
+      "created_at": "2026-10-15T20:04:59.638583+00:00"
+    },
+    {
+      "id": 3252,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "game_id": "401873005",
+      "picked_team": "BUF",
+      "created_at": "2026-10-15T20:04:59.638583+00:00"
+    },
+    {
+      "id": 3253,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "game_id": "401873006",
+      "picked_team": "KC",
+      "created_at": "2026-10-15T20:04:59.638583+00:00"
+    },
+    {
+      "id": 3254,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "game_id": "401873007",
+      "picked_team": "DAL",
+      "created_at": "2026-10-15T20:04:59.638583+00:00"
+    },
+    {
+      "id": 3255,
+      "user_id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "game_id": "401873008",
+      "picked_team": "SF",
+      "created_at": "2026-10-15T20:04:59.638583+00:00"
+    },
+    {
+      "id": 3184,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "game_id": "401872995",
+      "picked_team": "SEA",
+      "created_at": "2026-10-15T15:46:42.641615+00:00"
+    },
+    {
+      "id": 3185,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "game_id": "401872996",
+      "picked_team": "JAX",
+      "created_at": "2026-10-15T15:46:42.641615+00:00"
+    },
+    {
+      "id": 3186,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "game_id": "401872997",
+      "picked_team": "BAL",
+      "created_at": "2026-10-15T15:46:42.641615+00:00"
+    },
+    {
+      "id": 3187,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "game_id": "401872998",
+      "picked_team": "CAR",
+      "created_at": "2026-10-15T15:46:42.641615+00:00"
+    },
+    {
+      "id": 3188,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "game_id": "401872999",
+      "picked_team": "CHI",
+      "created_at": "2026-10-15T15:46:42.641615+00:00"
+    },
+    {
+      "id": 3189,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "game_id": "401873000",
+      "picked_team": "NYG",
+      "created_at": "2026-10-15T15:46:42.641615+00:00"
+    },
+    {
+      "id": 3190,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "game_id": "401873001",
+      "picked_team": "NE",
+      "created_at": "2026-10-15T15:46:42.641615+00:00"
+    },
+    {
+      "id": 3191,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "game_id": "401873002",
+      "picked_team": "PIT",
+      "created_at": "2026-10-15T15:46:42.641615+00:00"
+    },
+    {
+      "id": 3192,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "game_id": "401873003",
+      "picked_team": "IND",
+      "created_at": "2026-10-15T15:46:42.641615+00:00"
+    },
+    {
+      "id": 3193,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "game_id": "401873004",
+      "picked_team": "LAR",
+      "created_at": "2026-10-15T15:46:42.641615+00:00"
+    },
+    {
+      "id": 3194,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "game_id": "401873005",
+      "picked_team": "BUF",
+      "created_at": "2026-10-15T15:46:42.641615+00:00"
+    },
+    {
+      "id": 3195,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "game_id": "401873006",
+      "picked_team": "KC",
+      "created_at": "2026-10-15T15:46:42.641615+00:00"
+    },
+    {
+      "id": 3196,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "game_id": "401873007",
+      "picked_team": "GB",
+      "created_at": "2026-10-15T15:46:42.641615+00:00"
+    },
+    {
+      "id": 3197,
+      "user_id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "game_id": "401873008",
+      "picked_team": "SF",
+      "created_at": "2026-10-15T15:46:42.641615+00:00"
+    },
+    {
+      "id": 3270,
+      "user_id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "game_id": "401872996",
+      "picked_team": "JAX",
+      "created_at": "2026-10-16T01:45:43.052934+00:00"
+    },
+    {
+      "id": 3271,
+      "user_id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "game_id": "401872997",
+      "picked_team": "BAL",
+      "created_at": "2026-10-16T01:45:43.052934+00:00"
+    },
+    {
+      "id": 3272,
+      "user_id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "game_id": "401872998",
+      "picked_team": "CAR",
+      "created_at": "2026-10-16T01:45:43.052934+00:00"
+    },
+    {
+      "id": 3273,
+      "user_id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "game_id": "401872999",
+      "picked_team": "CHI",
+      "created_at": "2026-10-16T01:45:43.052934+00:00"
+    },
+    {
+      "id": 3274,
+      "user_id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "game_id": "401873000",
+      "picked_team": "NYG",
+      "created_at": "2026-10-16T01:45:43.052934+00:00"
+    },
+    {
+      "id": 3275,
+      "user_id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "game_id": "401873001",
+      "picked_team": "NE",
+      "created_at": "2026-10-16T01:45:43.052934+00:00"
+    },
+    {
+      "id": 3276,
+      "user_id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "game_id": "401873002",
+      "picked_team": "PIT",
+      "created_at": "2026-10-16T01:45:43.052934+00:00"
+    },
+    {
+      "id": 3277,
+      "user_id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "game_id": "401873003",
+      "picked_team": "IND",
+      "created_at": "2026-10-16T01:45:43.052934+00:00"
+    },
+    {
+      "id": 3278,
+      "user_id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "game_id": "401873004",
+      "picked_team": "LAR",
+      "created_at": "2026-10-16T01:45:43.052934+00:00"
+    },
+    {
+      "id": 3279,
+      "user_id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "game_id": "401873005",
+      "picked_team": "BUF",
+      "created_at": "2026-10-16T01:45:43.052934+00:00"
+    },
+    {
+      "id": 3280,
+      "user_id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "game_id": "401873006",
+      "picked_team": "KC",
+      "created_at": "2026-10-16T01:45:43.052934+00:00"
+    },
+    {
+      "id": 3281,
+      "user_id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "game_id": "401873007",
+      "picked_team": "GB",
+      "created_at": "2026-10-16T01:45:43.052934+00:00"
+    },
+    {
+      "id": 3282,
+      "user_id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "game_id": "401873008",
+      "picked_team": "SF",
+      "created_at": "2026-10-16T01:45:43.052934+00:00"
+    },
+    {
+      "id": 3010,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "game_id": "401872996",
+      "picked_team": "HOU",
+      "created_at": "2026-10-13T05:39:47.776483+00:00"
+    },
+    {
+      "id": 3011,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "game_id": "401872997",
+      "picked_team": "BAL",
+      "created_at": "2026-10-13T05:39:47.776483+00:00"
+    },
+    {
+      "id": 3012,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "game_id": "401872998",
+      "picked_team": "CAR",
+      "created_at": "2026-10-13T05:39:47.776483+00:00"
+    },
+    {
+      "id": 3013,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "game_id": "401872999",
+      "picked_team": "ATL",
+      "created_at": "2026-10-13T05:39:47.776483+00:00"
+    },
+    {
+      "id": 3014,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "game_id": "401873000",
+      "picked_team": "NYG",
+      "created_at": "2026-10-13T05:39:47.776483+00:00"
+    },
+    {
+      "id": 3015,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "game_id": "401873001",
+      "picked_team": "NE",
+      "created_at": "2026-10-13T05:39:47.776483+00:00"
+    },
+    {
+      "id": 3016,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "game_id": "401873002",
+      "picked_team": "PIT",
+      "created_at": "2026-10-13T05:39:47.776483+00:00"
+    },
+    {
+      "id": 3017,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "game_id": "401873003",
+      "picked_team": "IND",
+      "created_at": "2026-10-13T05:39:47.776483+00:00"
+    },
+    {
+      "id": 3018,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "game_id": "401873004",
+      "picked_team": "LAR",
+      "created_at": "2026-10-13T05:39:47.776483+00:00"
+    },
+    {
+      "id": 3019,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "game_id": "401873005",
+      "picked_team": "BUF",
+      "created_at": "2026-10-13T05:39:47.776483+00:00"
+    },
+    {
+      "id": 3020,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "game_id": "401873006",
+      "picked_team": "KC",
+      "created_at": "2026-10-13T05:39:47.776483+00:00"
+    },
+    {
+      "id": 3021,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "game_id": "401873007",
+      "picked_team": "DAL",
+      "created_at": "2026-10-13T05:39:47.776483+00:00"
+    },
+    {
+      "id": 3022,
+      "user_id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "game_id": "401873008",
+      "picked_team": "SF",
+      "created_at": "2026-10-13T05:39:47.776483+00:00"
+    }
+  ],
+  "profiles": [
+    {
+      "id": "a9ca7e7c-339a-4e9c-b51b-95f9dc0a89f6",
+      "display_name": "Trash",
+      "actual_name": "Natasha Buraszeski",
+      "is_admin": false
+    },
+    {
+      "id": "bac24cea-1c92-4a66-8018-3684b954cbda",
+      "display_name": "Purdy Good team",
+      "actual_name": "Peter",
+      "is_admin": false
+    },
+    {
+      "id": "ceeb5824-a753-402f-ac46-33955dfc7331",
+      "display_name": "ShellBell",
+      "actual_name": "Shelley McKee ",
+      "is_admin": false
+    },
+    {
+      "id": "a35bc3d9-d43c-45ba-9a90-e704fbc4d271",
+      "display_name": "a10s",
+      "actual_name": "Athens Abary",
+      "is_admin": false
+    },
+    {
+      "id": "0abf214b-5a1d-428f-bb8f-a0ec4f051409",
+      "display_name": "El Chapo",
+      "actual_name": "Richard Conboy",
+      "is_admin": false
+    },
+    {
+      "id": "16f02317-1916-45d1-8b3f-177e62a903a6",
+      "display_name": "5280-4-Life",
+      "actual_name": "Casey Turner ",
+      "is_admin": false
+    },
+    {
+      "id": "9e32bab3-9893-416f-bb69-1125d1c15dfc",
+      "display_name": "Brrrrryan",
+      "actual_name": "Bryan Coloma",
+      "is_admin": true
+    },
+    {
+      "id": "f64b1578-cc0e-457c-b634-0fa071c58993",
+      "display_name": "Shereceeee",
+      "actual_name": "Sherece Cruz",
+      "is_admin": false
+    },
+    {
+      "id": "ff8c3e6a-ec1b-48c1-b26a-37378dac7c93",
+      "display_name": "Kate the Great",
+      "actual_name": "Kate Nagy",
+      "is_admin": false
+    },
+    {
+      "id": "d0deac45-6ddb-4829-b226-eed9040ca881",
+      "display_name": "Erryn",
+      "actual_name": "Erryn Guilfoyle",
+      "is_admin": false
+    },
+    {
+      "id": "a5a126b5-cc70-4db9-93a6-59ce5c1a1b6a",
+      "display_name": "Going Beast Mode",
+      "actual_name": "Randy Covington",
+      "is_admin": false
+    },
+    {
+      "id": "c9ce2e1d-1985-439f-8a5d-9d5cb5e801c8",
+      "display_name": "EightyTu",
+      "actual_name": "Tu Nguyen",
+      "is_admin": false
+    },
+    {
+      "id": "46781f6c-58da-48d7-978e-60ecf732d19e",
+      "display_name": "Scott\u2019s Tots",
+      "actual_name": "Samantha Scott",
+      "is_admin": false
+    },
+    {
+      "id": "ab76ab25-b545-46c2-9535-f60f31df9fc5",
+      "display_name": "Gyurka",
+      "actual_name": "George Nagy",
+      "is_admin": false
+    },
+    {
+      "id": "a984c83a-42bb-4ea0-9c0c-578873185c07",
+      "display_name": "Nortonjd",
+      "actual_name": "John Norton",
+      "is_admin": false
+    },
+    {
+      "id": "9fb2d4ea-231d-49a4-8cde-93b101bd6cea",
+      "display_name": "Player",
+      "actual_name": null,
+      "is_admin": false
+    }
+  ]
+}
