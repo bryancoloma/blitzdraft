@@ -34,18 +34,19 @@ async function showSeason() {
     nameLookup[p.id] = p.display_name;
   }
 
-// build: { user_id: { 1: wins, 2: wins, ... } }
+  // build: { user_id: { 1: wins, 2: wins, ... } }
   const byPlayer = {};
   for (const row of scores) {
     if (!byPlayer[row.user_id]) byPlayer[row.user_id] = {};
     byPlayer[row.user_id][row.week] = row.wins;
   }
 
-// who won each week? { week: winning_user_id } — rank 1 that week
-  const weekWinner = {};
+  // collect ALL rank-1 players per week (handles co-winners / ties)
+  const weekWinners = {};
   for (const row of scores) {
     if (row.rank === 1) {
-      weekWinner[row.week] = row.user_id;
+      if (!weekWinners[row.week]) weekWinners[row.week] = [];
+      weekWinners[row.week].push(row.user_id);
     }
   }
 
@@ -72,7 +73,7 @@ async function showSeason() {
     for (const w of weeks) {
       const wins = byPlayer[userId][w] || 0;
       total += wins;
-      const trophy = (weekWinner[w] === userId && wins > 0 && weekDone[w]) ? "   🏆" : "";
+      const trophy = (weekWinners[w]?.includes(userId) && wins > 0 && weekDone[w]) ? "   🏆" : "";
       html += `<td>${wins}${trophy}</td>`;
     }
 

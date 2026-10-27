@@ -68,11 +68,17 @@ def get_tiebreaker_data(week):
 
 
 def compute_actuals(games):
-    """From finished games, get the last game's total points and the highest-scoring team."""
+    """Returns last game's total points, the top-scoring team abbr, and a name->abbr map."""
     if not games:
-        return None, None
+        return None, None, {}
 
-    # last game of the week (latest kickoff) → its total points
+    # name -> abbreviation map (so we can match full-name picks to abbreviations)
+    name_to_abbr = {}
+    for g in games:
+        name_to_abbr[g["home_team"]] = g["home_abbr"]
+        name_to_abbr[g["away_team"]] = g["away_abbr"]
+
+    # last game of the week (latest kickoff) -> its total points
     last_game = max(games, key=lambda g: g["kickoff_utc"])
     last_total = None
     if last_game["home_score"] is not None and last_game["away_score"] is not None:
@@ -87,11 +93,12 @@ def compute_actuals(games):
                 top_score = score
                 top_team = abbr
 
-    return last_total, top_team
+    return last_total, top_team, name_to_abbr
 
 
-def rank_players(tally, guesses, last_total, top_team):
-    """Rank players: most wins first, break ties by closest total-points guess, then most-points team."""
+def rank_players(tally, guesses, last_total, top_team, name_to_abbr):
+    """Rank players: most wins first, break ties by closest total-points guess, then most-points team.
+    Genuinely-tied players (identical sort_key) get the SAME rank (co-winners)."""
 
     def sort_key(user_id):
         wins = tally[user_id]
@@ -101,17 +108,30 @@ def rank_players(tally, guesses, last_total, top_team):
         guess = g.get("guess")
         guess_diff = abs(guess - last_total) if (guess is not None and last_total is not None) else 9999
 
-        # tiebreaker 2: did they correctly pick the highest-scoring team? (1 = yes, better)
-        got_top_team = 1 if (g.get("most_points_team") and top_team and
-                             g["most_points_team"].endswith(top_team)) else 0
+        # tiebreaker 2: did they correctly pick the top-scoring team?
+        # convert their full-name pick to an abbreviation, then compare to top_team
+        picked_name = g.get("most_points_team")
+        picked_abbr = name_to_abbr.get(picked_name) if picked_name else None
+        got_top_team = 1 if (picked_abbr and top_team and picked_abbr == top_team) else 0
 
         # sort: most wins, then smallest guess_diff, then got_top_team
         return (-wins, guess_diff, -got_top_team)
 
     ranked = sorted(tally.keys(), key=sort_key)
 
-    # assign rank 1, 2, 3... in that order
-    return {user_id: i + 1 for i, user_id in enumerate(ranked)}
+    # assign ranks, giving TIED players (identical sort_key) the SAME rank
+    ranks = {}
+    prev_key = None
+    prev_rank = 0
+    for i, user_id in enumerate(ranked):
+        key = sort_key(user_id)
+        if key == prev_key:
+            ranks[user_id] = prev_rank      # same as the player before = tie
+        else:
+            ranks[user_id] = i + 1          # new rank
+            prev_rank = i + 1
+            prev_key = key
+    return ranks
 
 
 # save the tally and run it.
@@ -129,10 +149,10 @@ def main():
 
     # tiebreaker data + actuals
     guesses, finished_games = get_tiebreaker_data(WEEK)
-    last_total, top_team = compute_actuals(finished_games)
+    last_total, top_team, name_to_abbr = compute_actuals(finished_games)
 
     # rank everyone (wins, then tiebreakers)
-    ranks = rank_players(tally, guesses, last_total, top_team)
+    ranks = rank_players(tally, guesses, last_total, top_team, name_to_abbr)
 
     rows = [
         {"user_id": user_id, "week": WEEK, "wins": wins, "rank": ranks[user_id]}
