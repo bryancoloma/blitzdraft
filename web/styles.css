@@ -235,3 +235,389 @@ nav {
   font-size: 18px;
   padding: 4px 8px;
 }
+/* ---------- Super Bowl Squares ---------- */
+/* board + winners side by side; winners drop underneath on narrow screens */
+#squaresLayout {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: stretch;   /* winners card is as tall as the board */
+  gap: 20px;
+}
+
+/* quarter winners panel — same white card look as the board */
+#squaresWinners {
+  width: 340px;
+  max-width: 100%;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  text-align: left;
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* rows sit in the middle of the tall card */
+}
+
+#squaresWinners h3 {
+  margin: 0 0 10px;
+  text-align: center;
+  font-family: "Oswald", "Arial Narrow", sans-serif;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+/* label column + value column, every row the same height */
+.sq-win-row {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+/* extra space after each Reverse row groups the rows by quarter */
+.sq-win-reverse {
+  margin-bottom: 16px;
+}
+
+.sq-win-label {
+  font-weight: bold;
+  color: #1e3a8a;
+  font-size: 15px;
+}
+
+.sq-win-value {
+  height: 32px;
+  box-sizing: border-box;
+  border: 2px solid #111827;
+  border-radius: 4px;
+  padding: 4px 8px;
+  font-size: 15px;
+  line-height: 20px;
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+#squaresWinners button {
+  display: block;
+  margin: 4px auto 0;
+}
+
+/* Save + Venmo buttons side by side */
+#squaresActions {
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 6px;
+}
+
+#venmoBtn {
+  display: inline-block;
+  background-color: #008cff;   /* Venmo blue */
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 16px;
+  border-radius: 9px;
+}
+
+#venmoNote {
+  color: #1e3a8a;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+/* white card behind the board so logos with white backgrounds blend in */
+#squaresBoard {
+  display: inline-block;
+  max-width: 100%;
+  box-sizing: border-box;
+  background-color: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+}
+
+#squaresTable {
+  table-layout: fixed;
+}
+
+/* column widths: side team | side numbers | 10 boxes */
+#squaresTable .sq-col-team { width: 80px; }
+#squaresTable .sq-col-num  { width: 44px; }
+#squaresTable .sq-col-box  { width: 72px; }
+
+#squaresTable .sq-team {
+  background-color: transparent;
+  border: none;
+  color: #111827;
+  font-family: "Oswald", "Arial Narrow", sans-serif; /* tall condensed font like the mockup */
+  font-size: 40px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* top-left corner: big Super Bowl logo */
+#squaresTable .sq-sb {
+  background-color: transparent;
+  border: none;
+  padding: 4px;
+}
+
+/* must fit the two columns under it (80 + 44px), or the browser stretches the whole board */
+#squaresTable .sq-sb .sq-logo {
+  width: 116px;
+  height: auto;
+  max-height: 116px;
+  object-fit: contain;
+  margin: 0;
+}
+
+/* top team: logo + name side by side, centered over the boxes */
+#squaresTable .sq-top-team {
+  padding: 8px;
+  white-space: nowrap;
+}
+
+#squaresTable .sq-top-team .sq-logo {
+  height: 80px;
+  width: auto;
+  vertical-align: middle;
+  margin-right: 14px;
+}
+
+#squaresTable .sq-top-team span {
+  vertical-align: middle;
+}
+
+/* side team: name reads bottom-to-top, logo underneath */
+#squaresTable .sq-side-team {
+  width: 80px;
+  padding: 4px;
+  vertical-align: middle;   /* centered down the side of the board */
+  text-align: center;       /* centered across the column */
+}
+
+#squaresTable .sq-vertical {
+  display: inline-block;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  white-space: nowrap;
+}
+
+/* the side logo sits in the sideways text; the extra 90° turn makes it lie the same way as the name */
+#squaresTable .sq-vertical .sq-logo {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  transform: rotate(90deg);
+  margin: 0;
+  margin-inline-end: 12px;
+  vertical-align: middle;
+}
+
+/* the empty square where the number row and column meet */
+#squaresTable .sq-corner {
+  background-color: transparent;
+  border: none;
+}
+
+/* admin: squares notifications panel */
+.sq-notify {
+  max-width: 640px;
+  margin: 10px auto 16px;
+  padding: 10px 14px;
+  background-color: #fef3c7;
+  border: 1px solid #f59e0b;
+  border-radius: 9px;
+  text-align: left;
+}
+
+.sq-notify ul {
+  margin: 6px 0;
+  padding-left: 20px;
+}
+
+.sq-notify-totals {
+  margin: 8px 0 0;
+  font-size: 13px;
+  color: #374151;
+}
+
+.sq-badge {
+  font-weight: bold;
+  color: #b45309;
+}
+
+/* admin: destructive button (Reset Squares) */
+.sq-danger {
+  background-color: #e11d48;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-weight: bold;
+}
+
+/* admin: logo upload cards */
+.sq-admin-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.sq-admin-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  width: 240px;
+  box-sizing: border-box;   /* padding counts inside the 240px */
+  padding: 12px;
+  border: 1px solid #1e3a8a;
+  border-radius: 9px;
+  background-color: white;
+}
+
+.sq-admin-sub {
+  font-size: 13px;
+  color: #6b7280;
+  margin-top: -6px;
+}
+
+/* keep every input inside its card */
+.sq-admin-card input[type="file"],
+.sq-admin-card input[type="text"] {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 13px;
+}
+
+.sq-admin-card input[type="text"] {
+  padding: 4px 6px;
+}
+
+.sq-admin-logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.sq-admin-nologo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: #9ca3af;
+  border: 1px dashed #9ca3af;
+}
+
+/* top number bar is exactly as tall as the side number bar is wide (44px) */
+#squaresTable .sq-num {
+  height: 44px;
+  padding: 0;
+  font-size: 20px;
+}
+
+#squaresTable .sq-box {
+  width: 72px;
+  height: 48px;
+  padding: 2px;   /* the site-wide 10px cell padding made the board too wide */
+  font-size: 11px;
+  overflow: hidden;
+  word-break: break-word;
+  cursor: pointer;
+  background-color: white;
+}
+
+#squaresTable .sq-open:hover {
+  background-color: #dbeafe;
+}
+
+/* board locked (numbers drawn) — empty box, can't click */
+#squaresTable .sq-closed {
+  background-color: #f3f4f6;
+  cursor: default;
+}
+
+/* clicked but not saved yet */
+#squaresTable .sq-pending {
+  background-color: #fde68a;
+  font-style: italic;
+}
+
+/* saved, belongs to me */
+#squaresTable .sq-mine {
+  background-color: #2563eb;
+  color: white;
+  cursor: default;
+}
+
+/* saved, belongs to someone else */
+#squaresTable .sq-taken {
+  background-color: #e5e7eb;
+  color: #374151;
+  cursor: default;
+}
+
+#saveSquaresBtn {
+  font-size: 16px;
+  padding: 8px 16px;
+  border-radius: 9px;
+}
+
+/* phone screens: shrink the boxes so 10 fit across */
+@media (max-width: 640px) {
+  #squaresTable .sq-box {
+    width: 30px;
+    height: 34px;
+    font-size: 8px;
+    padding: 1px;
+  }
+
+  #squaresBoard {
+    padding: 6px;
+  }
+
+  #squaresTable .sq-col-team { width: 30px; }
+  #squaresTable .sq-col-num  { width: 22px; }
+  #squaresTable .sq-col-box  { width: 30px; }
+
+  #squaresTable .sq-num {
+    height: 22px;
+    font-size: 12px;
+  }
+
+  #squaresTable .sq-team {
+    font-size: 16px;
+    letter-spacing: 0;
+  }
+
+  #squaresTable .sq-sb .sq-logo {
+    width: 52px;
+  }
+
+  #squaresTable .sq-top-team .sq-logo {
+    height: 32px;
+    margin-right: 6px;
+  }
+
+  #squaresTable .sq-side-team {
+    width: 30px;
+    padding: 2px;
+  }
+
+  #squaresTable .sq-vertical .sq-logo {
+    width: 26px;
+    height: 26px;
+    margin-inline-end: 6px;
+  }
+}
