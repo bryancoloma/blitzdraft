@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>blitzDraft — Squares</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h1>blitzDraft</h1>
+  <button id="logoutBtn">Log Out</button>
+  <nav>
+    <a href="index.html">Picks</a> |
+    <a href="group.html">Group Picks</a> |
+    <a href="season.html">Season</a>
+    <span id="squaresLink" style="display:none;"> | <a href="squares.html">Squares</a></span>
+  </nav>
+  <h2>Super Bowl Squares</h2>
+
+  <p id="squaresStatus"></p>
+  <!-- board on the left, quarter winners on the right (stacks under it on phones) -->
+  <div id="squaresLayout">
+    <div id="squaresBoard"></div>
+    <div id="squaresWinners"></div>
+  </div>
+  <p id="squaresSummary"></p>
+  <div id="squaresActions" style="display:none;">
+    <button id="saveSquaresBtn" style="display:none;">Save My Boxes</button>
+    <a id="venmoBtn" href="https://account.venmo.com/u/TheBryanC" target="_blank">Pay on Venmo</a>
+  </div>
+  <p id="venmoNote" style="display:none;">After you save, please pay for your boxes using the Venmo button.</p>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="squares.js"></script>
+  <script src="squares-nav.js"></script>
+</body>
+</html>
