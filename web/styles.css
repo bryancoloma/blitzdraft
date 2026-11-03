@@ -221,6 +221,12 @@ nav {
   gap: 8px;
 }
 
+/* tiebreaker left blank when they tried to save */
+.tb-missing {
+  outline: 3px solid #e11d48;
+  outline-offset: 1px;
+}
+
 #tbGuess {
   width: 55px;
   text-align: center;
@@ -315,7 +321,9 @@ nav {
   margin-bottom: 6px;
 }
 
-#venmoBtn {
+/* Venmo button — Squares page (#venmoBtn) and Picks page payment banner (.venmo-btn) */
+#venmoBtn,
+.venmo-btn {
   display: inline-block;
   background-color: #008cff;   /* Venmo blue */
   color: white;
@@ -324,6 +332,10 @@ nav {
   font-weight: bold;
   padding: 8px 16px;
   border-radius: 9px;
+}
+
+#paymentStatus .venmo-btn {
+  margin-top: 8px;
 }
 
 #venmoNote {

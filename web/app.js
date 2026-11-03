@@ -201,7 +201,36 @@ document.getElementById("logoutBtn").addEventListener("click", async () => {
   window.location.href = "login.html";
 });
 
+// Tiebreakers are required before saving. A field that's already LOCKED (its game started)
+// is skipped — otherwise someone who missed it could never save their remaining picks.
+function tiebreakersMissing() {
+  const missing = [];
+  for (const id of ["tbGuess", "tbMostPoints"]) {
+    const field = document.getElementById(id);
+    if (!field.disabled && !field.value.trim()) {
+      field.classList.add("tb-missing");
+      missing.push(id);
+    }
+  }
+  return missing.length > 0;
+}
+
+// clear the red outline as soon as they fill a field in
+for (const id of ["tbGuess", "tbMostPoints"]) {
+  const field = document.getElementById(id);
+  const clear = () => { if (field.value.trim()) field.classList.remove("tb-missing"); };
+  field.addEventListener("input", clear);
+  field.addEventListener("change", clear);
+}
+
 document.getElementById("saveBtn").addEventListener("click", async () => {
+  // 0. tiebreakers must be filled in first
+  if (tiebreakersMissing()) {
+    alert("Please complete the tiebreaker section before saving your picks.");
+    document.getElementById("tiebreakers").scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+
   // 1. who is logged in?
   const { data: userData } = await supabaseClient.auth.getUser();
   const userId = userData.user.id;
@@ -327,8 +356,8 @@ async function showPaymentStatus() {
   if (payment?.paid) {
     el.innerHTML = `<span style="color:#16a34a; font-weight:bold;">✅ You're paid for this week</span>`;
   } else {
-    el.innerHTML = `<span style="color:#e11d48; font-weight:bold;">Payment required for this week —</span> 
-      <a href="https://account.venmo.com/u/TheBryanC" target="_blank">pay $5 via Venmo</a>`;
+    el.innerHTML = `<span style="color:#e11d48; font-weight:bold;">Payment required for this week</span><br>
+      <a class="venmo-btn" href="https://account.venmo.com/u/TheBryanC" target="_blank">Pay $5 on Venmo</a>`;
   }
 }
 
