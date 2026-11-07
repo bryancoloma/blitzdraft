@@ -37,16 +37,21 @@ Admin: Bryan (airferrari81@gmail.com), flagged by profiles.is_admin = true.
 
 ### Frontend (web/ folder)
 - `index.html` / `app.js` — the picks page. Shows games grouped by date, clickable team
-  buttons, live scores, kickoff locking, tiebreaker inputs, name editing, payment banner,
+  buttons, live scores, kickoff locking, tiebreaker inputs (required to save), name editing,
+  payment banner, "My Payments" card (weeks 1–current: Paid / DNP / Owe $5, balance +
+  Venmo button; beside the games on wide screens, below them otherwise),
   admin link (hidden unless is_admin).
 - `group.html` / `group.js` — Group Picks grid (players × games). Hidden-until-kickoff
-  reveal, rank ordering, tiebreaker columns, wins column, week-selector dropdown.
+  reveal, rank ordering, tiebreaker columns, wins column, week-selector dropdown, and a
+  "Week N Pot" box upper right (paid players × $5 × 90% for the selected week).
 - `season.html` / `season.js` — season standings grid (players × weeks), weekly-winner
   trophy per column.
 - `login.html` / `login.js` — login + signup + forgot-password trigger.
 - `reset.html` / `reset.js` — password reset landing page (Supabase recovery link lands here).
 - `admin.html` / `admin.js` — admin-only payment tracker grid (players × weeks 1–22,
-  with PO1–PO4 playoff labels). Checkboxes save paid status to the `payments` table.
+  with PO1–PO4 playoff labels). Click a box to cycle blank (owes) → ✅ paid → DNP → blank;
+  saves to the `payments` table. Balance column (unpaid, non-DNP weeks up to current_week
+  × $5). Pot rows per week: (PAID players only) × $5 → 90% "Weekly Pot" payout + 10% "Side Pot" (running total at the end of that row).
 - `styles.css` — all styling.
 
 ## Database tables (Supabase)
@@ -59,7 +64,10 @@ Admin: Bryan (airferrari81@gmail.com), flagged by profiles.is_admin = true.
 - `settings` — key/value. Holds `current_week`.
 - `tiebreakers` — id (auto), user_id, week, guess (total pts of last game), most_points_team
   (stored as FULL name e.g. "San Francisco"). Unique (user_id, week).
-- `payments` — id (auto), user_id, week, paid (bool). Unique (user_id, week).
+- `payments` — id (auto), user_id, week, paid (bool), dnp (bool, "did not play" — never
+  owed; added by sql/payments_dnp.sql). Unique (user_id, week). No row = owes.
+  NOTE: payments.week runs 1–22 (19–22 = playoffs) but games.week resets to 1 in playoffs —
+  the Picks-page banner/card use current_week directly, so revisit before the playoffs.
 
 RLS is on for all tables. Key policies: players read/write only their own picks/tiebreakers;
 picks are hidden from others until each game starts (time-based RLS); payments readable by

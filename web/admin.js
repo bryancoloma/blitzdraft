@@ -27,27 +27,29 @@ async function loadAdmin() {
 
   document.getElementById("adminWeek").textContent = "Payment Tracker";
 
-  // 3. all players
+  // 3. all players + the current week (weeks up to here count toward balances)
   const { data: profiles } = await supabaseClient
     .from("profiles").select("id, display_name, actual_name");
+  const { data: weekRow } = await supabaseClient
+    .from("settings").select("value").eq("key", "current_week").maybeSingle();
+  const currentWeek = parseInt(weekRow?.value) || 1;
 
   // 4. ALL payment records (every week)
   const { data: payments } = await supabaseClient
-    .from("payments").select("user_id, week, paid");
+    .from("payments").select("user_id, week, paid, dnp");
 
-  // lookup: paidLookup[user_id][week] = true/false
-  const paidLookup = {};
-  for (const p of payments) {
-    if (!paidLookup[p.user_id]) paidLookup[p.user_id] = {};
-    paidLookup[p.user_id][p.week] = p.paid;
+  // lookup: statusLookup[user_id][week] = "paid" | "dnp" | "" (owes)
+  for (const p of payments || []) {
+    if (!statusLookup[p.user_id]) statusLookup[p.user_id] = {};
+    statusLookup[p.user_id][p.week] = p.dnp ? "dnp" : p.paid ? "paid" : "";
   }
 
   // 5. build the grid
-  let html = "<table><tr><th>Player</th>";
+  let html = "<table id='payGrid'><tr><th>Player</th>";
   for (const w of WEEKS) {
     html += `<th>${WEEK_LABELS[w] || "Wk " + w}</th>`;
   }
-  html += "</tr>";
+  html += "<th>Balance</th></tr>";
 
   for (const profile of profiles) {
     const name = profile.actual_name
@@ -56,36 +58,103 @@ async function loadAdmin() {
     html += `<tr><td>${name}</td>`;
 
     for (const w of WEEKS) {
-      const isPaid = paidLookup[profile.id]?.[w] || false;
-      html += `<td><input type="checkbox" ${isPaid ? "checked" : ""} data-user="${profile.id}" data-week="${w}"></td>`;
+      html += `<td class="pay-cell" data-user="${profile.id}" data-week="${w}"></td>`;
     }
 
-    html += "</tr>";
+    html += `<td class="pay-balance" data-user="${profile.id}"></td></tr>`;
   }
-  html += "</table>";
+
+  // pot rows: players in that week (not DNP) × $5, split 90% weekly payout / 10% side pot
+  html += "<tr class='pay-pot'><td>Weekly Pot (90%)</td>";
+  for (const w of WEEKS) html += `<td data-pot="${w}"></td>`;
+  html += "<td></td></tr>";
+  html += "<tr class='pay-pot pay-side'><td>Side Pot (10%)</td>";
+  for (const w of WEEKS) html += `<td data-side="${w}"></td>`;
+  html += "<td id='sidePotTotal'></td></tr></table>";
+  html += "<p class='pay-legend'>Click a box to cycle: blank (owes) → ✅ paid → DNP (did not play) → blank. " +
+          `Balance counts weeks 1–${currentWeek}.</p>`;
 
   document.getElementById("adminBoard").innerHTML = html;
+  showPayStatuses(currentWeek);
 
-  // 6. wire up each checkbox to save on change
-  document.querySelectorAll("#adminBoard input[type=checkbox]").forEach((box) => {
-    box.addEventListener("change", async () => {
-      const userId = box.dataset.user;
-      const week = parseInt(box.dataset.week);
-      const paid = box.checked;
+  // 6. each click moves the box to its next status and saves it
+  const NEXT = { "": "paid", "paid": "dnp", "dnp": "" };
+  document.querySelectorAll("#adminBoard .pay-cell").forEach((cell) => {
+    cell.addEventListener("click", async () => {
+      const userId = cell.dataset.user;
+      const week = parseInt(cell.dataset.week);
+      const before = statusLookup[userId]?.[week] || "";
+      const after = NEXT[before];
+
+      // show it right away; put it back if the save fails
+      if (!statusLookup[userId]) statusLookup[userId] = {};
+      statusLookup[userId][week] = after;
+      showPayStatuses(currentWeek);
 
       const { error } = await supabaseClient
         .from("payments")
-        .upsert({ user_id: userId, week: week, paid: paid }, { onConflict: "user_id, week" });
+        .upsert({ user_id: userId, week: week, paid: after === "paid", dnp: after === "dnp" },
+                { onConflict: "user_id, week" });
 
       if (error) {
         console.log("Payment save error:", error);
-        box.checked = !paid; // revert the box if save failed
-        alert("Could not save — are you the admin?");
+        statusLookup[userId][week] = before;
+        showPayStatuses(currentWeek);
+        alert("Could not save — are you the admin? (and did you run sql/payments_dnp.sql?)");
       } else {
-        console.log(`Saved: user ${userId}, week ${week}, paid ${paid}`);
+        console.log(`Saved: user ${userId}, week ${week}, ${after || "owes"}`);
       }
     });
   });
+}
+
+const WEEKLY_BUYIN = 5;      // $ per week
+const SIDE_POT_SHARE = 0.10; // 10% of each week's pot goes to the separate side pot
+const statusLookup = {};   // statusLookup[user_id][week] = "paid" | "dnp" | "" (owes)
+
+// redraw every box, each player's balance, and each week's pot from statusLookup
+function showPayStatuses(currentWeek) {
+  document.querySelectorAll("#adminBoard .pay-cell").forEach((cell) => {
+    const status = statusLookup[cell.dataset.user]?.[cell.dataset.week] || "";
+    cell.textContent = status === "paid" ? "✅" : status === "dnp" ? "DNP" : "";
+    cell.className = "pay-cell" + (status ? " pay-" + status : "");
+  });
+
+  // balance = weeks up to the current one that are neither paid nor DNP
+  document.querySelectorAll("#adminBoard .pay-balance").forEach((cell) => {
+    let owed = 0;
+    for (const w of WEEKS) {
+      if (w <= currentWeek && !statusLookup[cell.dataset.user]?.[w]) owed += WEEKLY_BUYIN;
+    }
+    cell.textContent = owed ? `$${owed}` : "✅";
+    cell.classList.toggle("pay-owes", owed > 0);
+  });
+
+  // pots count PAID players only: (paid × $5) split 90% weekly payout / 10% side pot
+  let sideTotal = 0;
+  for (const w of WEEKS) {
+    const total = paidCount(w) * WEEKLY_BUYIN;
+    sideTotal += total * SIDE_POT_SHARE;
+    document.querySelector(`#adminBoard [data-pot="${w}"]`).textContent =
+      total ? money(total * (1 - SIDE_POT_SHARE)) : "";
+    document.querySelector(`#adminBoard [data-side="${w}"]`).textContent =
+      total ? money(total * SIDE_POT_SHARE) : "";
+  }
+  document.getElementById("sidePotTotal").textContent = money(sideTotal);
+}
+
+function paidCount(week) {
+  let count = 0;
+  for (const userId in statusLookup) {
+    if (statusLookup[userId][week] === "paid") count++;
+  }
+  return count;
+}
+
+// $67.5 → "$67.50", $45 → "$45"
+function money(amount) {
+  const rounded = Math.round(amount * 100) / 100;
+  return "$" + (Number.isInteger(rounded) ? rounded : rounded.toFixed(2));
 }
 
 // Super Bowl Squares controls: notifications, on/off switch, price, teams/logos/colors, numbers
