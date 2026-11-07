@@ -633,3 +633,117 @@ nav {
     margin-inline-end: 6px;
   }
 }
+
+/* ---------- Payment tracker ---------- */
+
+/* Picks page: games stay centered; "My Payments" card floats to their right */
+#picksWrap {
+  position: relative;
+  width: 630px;
+  margin: 0 auto;
+}
+
+#myPayments {
+  position: absolute;
+  top: 24px;
+  left: calc(100% + 50px);
+  width: 260px;
+  background: white;
+  border-radius: 12px;
+  padding: 12px 16px 16px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+#myPayments:empty { display: none; }
+
+#myPayments h3 {
+  margin: 0 0 8px;
+  color: #1e3a8a;
+}
+
+#myPayments table { width: 100%; }
+
+#myPayments td { padding: 4px 8px; }
+
+.mp-paid { color: #16a34a; font-weight: bold; }
+.mp-owe  { color: #e11d48; font-weight: bold; }
+.mp-dnp  { color: #475569; font-weight: bold; }
+
+.mp-balance { margin: 12px 0 8px; font-size: 18px; }
+
+/* not enough room beside the games → card drops below them */
+@media (max-width: 1300px) {
+  #myPayments {
+    position: static;
+    margin: 24px auto 0;
+  }
+}
+
+@media (max-width: 640px) {
+  #picksWrap { width: 100%; }
+}
+
+/* Admin grid: clickable status boxes + balance column + pot row */
+.pay-cell {
+  cursor: pointer;
+  min-width: 34px;
+  height: 26px;
+  user-select: none;
+}
+
+.pay-cell:hover { background-color: #dbeafe; }
+.pay-paid { background-color: #dcfce7; }
+.pay-dnp  { background-color: #e2e8f0; color: #475569; font-weight: bold; font-size: 12px; }
+
+.pay-balance { font-weight: bold; color: #16a34a; }
+.pay-balance.pay-owes { color: #e11d48; }
+
+.pay-pot td {
+  font-weight: bold;
+  background-color: #eef2ff;
+}
+
+.pay-legend {
+  color: #1e3a8a;
+  font-size: 14px;
+}
+
+.pay-side td {
+  background-color: #fef9c3;   /* side pot row: light yellow so it reads as a separate pot */
+}
+
+/* Group Picks: this week's pot, upper right under Log Out (hidden until group.js fills it) */
+#weekPot:empty { display: none; }
+
+#weekPot {
+  position: absolute;
+  top: 48px;
+  right: 16px;
+  background: white;
+  border: 3px solid #16a34a;
+  border-radius: 12px;
+  padding: 8px 18px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+}
+
+.wp-label {
+  color: #1e3a8a;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.wp-amount {
+  color: #16a34a;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+/* phones: no room in the corner, so it sits centered under the title */
+@media (max-width: 640px) {
+  #weekPot {
+    position: static;
+    display: inline-block;
+    margin: 4px auto 8px;
+  }
+}

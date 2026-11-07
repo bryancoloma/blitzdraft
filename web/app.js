@@ -344,21 +344,57 @@ async function showPaymentStatus() {
   const userId = userData.user.id;
   const week = await getCurrentWeek();
 
-  const { data: payment } = await supabaseClient
+  // all of this player's payment rows (one per week, at most 22)
+  const { data: rows } = await supabaseClient
     .from("payments")
-    .select("paid")
-    .eq("user_id", userId)
-    .eq("week", week)
-    .maybeSingle();
+    .select("week, paid, dnp")
+    .eq("user_id", userId);
+
+  // status[week] = "paid" | "dnp" | "" (owes)
+  const status = {};
+  for (const r of rows || []) status[r.week] = r.dnp ? "dnp" : r.paid ? "paid" : "";
 
   const el = document.getElementById("paymentStatus");
 
-  if (payment?.paid) {
+  if (status[week] === "paid") {
     el.innerHTML = `<span style="color:#16a34a; font-weight:bold;">✅ You're paid for this week</span>`;
+  } else if (status[week] === "dnp") {
+    el.innerHTML = `<span style="color:#475569; font-weight:bold;">You're sitting out this week (DNP)</span>`;
   } else {
     el.innerHTML = `<span style="color:#e11d48; font-weight:bold;">Payment required for this week</span><br>
       <a class="venmo-btn" href="https://account.venmo.com/u/TheBryanC" target="_blank">Pay $5 on Venmo</a>`;
   }
+
+  showMyPayments(status, week);
+}
+
+const WEEKLY_BUYIN = 5; // $ per week
+const PLAYOFF_LABELS = { 19: "PO1", 20: "PO2", 21: "PO3", 22: "PO4" }; // same as the admin grid
+
+// "My Payments" card beside the games: every week so far + what's still owed
+function showMyPayments(status, currentWeek) {
+  const box = document.getElementById("myPayments");
+  let rowsHtml = "";
+  const owedWeeks = [];
+
+  for (let w = 1; w <= currentWeek; w++) {
+    const label = PLAYOFF_LABELS[w] || `Week ${w}`;
+    let cell;
+    if (status[w] === "paid") cell = `<span class="mp-paid">✅ Paid</span>`;
+    else if (status[w] === "dnp") cell = `<span class="mp-dnp">DNP</span>`;
+    else { cell = `<span class="mp-owe">❌ Owe $${WEEKLY_BUYIN}</span>`; owedWeeks.push(w); }
+    rowsHtml += `<tr><td>${label}</td><td>${cell}</td></tr>`;
+  }
+
+  const owed = owedWeeks.length * WEEKLY_BUYIN;
+  const footer = owed
+    ? `<p class="mp-balance mp-owe">Balance: $${owed}<br><small>(${owedWeeks.map((w) => PLAYOFF_LABELS[w] || "Wk " + w).join(", ")})</small></p>
+       <a class="venmo-btn" href="https://account.venmo.com/u/TheBryanC" target="_blank">Pay $${owed} on Venmo</a>`
+    : `<p class="mp-balance mp-paid">All paid up 🎉</p>`;
+
+  box.innerHTML = `<h3>My Payments</h3>
+    <table><tr><th>Week</th><th>Status</th></tr>${rowsHtml}</table>
+    ${footer}`;
 }
 
 showPaymentStatus();

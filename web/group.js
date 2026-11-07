@@ -11,6 +11,20 @@ async function getCurrentWeek() {
   return parseInt(data.value);
 }
 
+// upper-right box: this week's payout = paid players × $5 × 90% (10% goes to the side pot)
+async function showWeekPot(week) {
+  const { count } = await supabaseClient
+    .from("payments")
+    .select("*", { count: "exact", head: true })
+    .eq("week", week)
+    .eq("paid", true);
+
+  const pot = Math.round((count || 0) * 5 * 0.9 * 100) / 100;
+  const amount = Number.isInteger(pot) ? pot : pot.toFixed(2);
+  const box = document.getElementById("weekPot");
+  box.innerHTML = `<div class="wp-label">Week ${week} Pot</div><div class="wp-amount">$${amount}</div>`;
+}
+
 async function showGroupPicks() {
   const actualCurrentWeek = await getCurrentWeek();
 
@@ -33,6 +47,9 @@ async function showGroupPicks() {
   picker.onchange = () => {
     window.location.href = `group.html?week=${picker.value}`;
   };
+
+  showWeekPot(currentWeek);
+
   // this week's games
   const { data: games } = await supabaseClient
     .from("games")
