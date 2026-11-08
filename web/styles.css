@@ -747,3 +747,14 @@ nav {
     margin: 4px auto 8px;
   }
 }
+
+/* ---------- Your own row (Group Picks + Season) ---------- */
+/* gold outline + light yellow fill; green/red pick cells keep their colors */
+tr.me td {
+  border-top: 3px solid #f59e0b;
+  border-bottom: 3px solid #f59e0b;
+  font-weight: bold;
+}
+tr.me td:first-child { border-left: 3px solid #f59e0b; }
+tr.me td:last-child { border-right: 3px solid #f59e0b; }
+tr.me td:not(.correct):not(.wrong) { background-color: #fef9c3; }

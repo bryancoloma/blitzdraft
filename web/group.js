@@ -28,6 +28,10 @@ async function showWeekPot(week) {
 async function showGroupPicks() {
   const actualCurrentWeek = await getCurrentWeek();
 
+  // who's logged in — their own row gets highlighted
+  const { data: { session } } = await supabaseClient.auth.getSession();
+  const myId = session?.user?.id;
+
   // check if a week was picked in the dropdown (via the URL), else use current
   const urlParams = new URLSearchParams(window.location.search);
   const currentWeek = parseInt(urlParams.get("week")) || actualCurrentWeek;
@@ -133,7 +137,8 @@ async function showGroupPicks() {
 
   // one row per player
   for (const profile of profiles) {
-    html += `<tr><td>${profile.display_name}</td>`;
+    const meClass = profile.id === myId ? ` class="me"` : "";
+    html += `<tr${meClass}><td>${profile.display_name}</td>`;
 
     for (const game of games) {
       const pick = pickLookup[profile.id]?.[game.id] || "";
