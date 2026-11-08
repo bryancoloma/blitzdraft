@@ -3,6 +3,10 @@ const SUPABASE_PUBLISHABLE_KEY = "sb_publishable_E4G8S_HtDAdNB294_QomLA_vLlHMuIR
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
 async function showSeason() {
+  // who's logged in — their own row gets highlighted
+  const { data: { session } } = await supabaseClient.auth.getSession();
+  const myId = session?.user?.id;
+
   // get ALL score rows (every week, every player)
   const { data: scores } = await supabaseClient
     .from("scores")
@@ -67,7 +71,8 @@ async function showSeason() {
   });
 
   for (const userId of rankedPlayers) {
-    html += `<tr><td>${nameLookup[userId]}</td>`;
+    const meClass = userId === myId ? ` class="me"` : "";
+    html += `<tr${meClass}><td>${nameLookup[userId]}</td>`;
 
     let total = 0;
     for (const w of weeks) {
