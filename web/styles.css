@@ -321,9 +321,8 @@ nav {
   margin-bottom: 6px;
 }
 
-/* Venmo button — Squares page (#venmoBtn) and Picks page payment banner (.venmo-btn) */
-#venmoBtn,
-.venmo-btn {
+/* Venmo button — Squares page */
+#venmoBtn {
   display: inline-block;
   background-color: #008cff;   /* Venmo blue */
   color: white;
@@ -332,10 +331,6 @@ nav {
   font-weight: bold;
   padding: 8px 16px;
   border-radius: 9px;
-}
-
-#paymentStatus .venmo-btn {
-  margin-top: 8px;
 }
 
 #venmoNote {
@@ -669,8 +664,6 @@ nav {
 .mp-owe  { color: #e11d48; font-weight: bold; }
 .mp-dnp  { color: #475569; font-weight: bold; }
 
-.mp-balance { margin: 12px 0 8px; font-size: 18px; }
-
 /* not enough room beside the games → card drops below them */
 @media (max-width: 1300px) {
   #myPayments {
@@ -683,7 +676,7 @@ nav {
   #picksWrap { width: 100%; }
 }
 
-/* Admin grid: clickable status boxes + balance column + pot row */
+/* Admin grid: clickable status boxes + Joined / Not Joined column */
 .pay-cell {
   cursor: pointer;
   min-width: 34px;
@@ -698,54 +691,9 @@ nav {
 .pay-balance { font-weight: bold; color: #16a34a; }
 .pay-balance.pay-owes { color: #e11d48; }
 
-.pay-pot td {
-  font-weight: bold;
-  background-color: #eef2ff;
-}
-
 .pay-legend {
   color: #1e3a8a;
   font-size: 14px;
-}
-
-.pay-side td {
-  background-color: #fef9c3;   /* side pot row: light yellow so it reads as a separate pot */
-}
-
-/* Group Picks: this week's pot, upper right under Log Out (hidden until group.js fills it) */
-#weekPot:empty { display: none; }
-
-#weekPot {
-  position: absolute;
-  top: 48px;
-  right: 16px;
-  background: white;
-  border: 3px solid #16a34a;
-  border-radius: 12px;
-  padding: 8px 18px;
-  text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
-}
-
-.wp-label {
-  color: #1e3a8a;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.wp-amount {
-  color: #16a34a;
-  font-weight: bold;
-  font-size: 30px;
-}
-
-/* phones: no room in the corner, so it sits centered under the title */
-@media (max-width: 640px) {
-  #weekPot {
-    position: static;
-    display: inline-block;
-    margin: 4px auto 8px;
-  }
 }
 
 /* ---------- Your own row (Group Picks + Season) ---------- */

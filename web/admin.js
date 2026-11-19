@@ -27,7 +27,7 @@ async function loadAdmin() {
 
   document.getElementById("adminWeek").textContent = "Payment Tracker";
 
-  // 3. all players + the current week (weeks up to here count toward balances)
+  // 3. all players + the current week (the right-hand column shows this week)
   const { data: profiles } = await supabaseClient
     .from("profiles").select("id, display_name, actual_name");
   const { data: weekRow } = await supabaseClient
@@ -49,7 +49,7 @@ async function loadAdmin() {
   for (const w of WEEKS) {
     html += `<th>${WEEK_LABELS[w] || "Wk " + w}</th>`;
   }
-  html += "<th>Balance</th></tr>";
+  html += `<th>Wk ${currentWeek}</th></tr>`;
 
   for (const profile of profiles) {
     const name = profile.actual_name
@@ -64,15 +64,9 @@ async function loadAdmin() {
     html += `<td class="pay-balance" data-user="${profile.id}"></td></tr>`;
   }
 
-  // pot rows: players in that week (not DNP) × $5, split 90% weekly payout / 10% side pot
-  html += "<tr class='pay-pot'><td>Weekly Pot (90%)</td>";
-  for (const w of WEEKS) html += `<td data-pot="${w}"></td>`;
-  html += "<td></td></tr>";
-  html += "<tr class='pay-pot pay-side'><td>Side Pot (10%)</td>";
-  for (const w of WEEKS) html += `<td data-side="${w}"></td>`;
-  html += "<td id='sidePotTotal'></td></tr></table>";
-  html += "<p class='pay-legend'>Click a box to cycle: blank (owes) → ✅ paid → DNP (did not play) → blank. " +
-          `Balance counts weeks 1–${currentWeek}.</p>`;
+  html += "</table>";
+  html += "<p class='pay-legend'>Click a box to cycle: blank (not joined) → ✅ joined → DNP (did not play) → blank. " +
+          `The right column shows Week ${currentWeek}.</p>`;
 
   document.getElementById("adminBoard").innerHTML = html;
   showPayStatuses(currentWeek);
@@ -108,11 +102,9 @@ async function loadAdmin() {
   });
 }
 
-const WEEKLY_BUYIN = 5;      // $ per week
-const SIDE_POT_SHARE = 0.10; // 10% of each week's pot goes to the separate side pot
-const statusLookup = {};   // statusLookup[user_id][week] = "paid" | "dnp" | "" (owes)
+const statusLookup = {};   // statusLookup[user_id][week] = "paid" | "dnp" | "" (not joined)
 
-// redraw every box, each player's balance, and each week's pot from statusLookup
+// redraw every box and each player's Joined / Not Joined column from statusLookup
 function showPayStatuses(currentWeek) {
   document.querySelectorAll("#adminBoard .pay-cell").forEach((cell) => {
     const status = statusLookup[cell.dataset.user]?.[cell.dataset.week] || "";
@@ -120,41 +112,12 @@ function showPayStatuses(currentWeek) {
     cell.className = "pay-cell" + (status ? " pay-" + status : "");
   });
 
-  // balance = weeks up to the current one that are neither paid nor DNP
+  // right column: joined only if this week's box is ✅ (blank or DNP = not joined)
   document.querySelectorAll("#adminBoard .pay-balance").forEach((cell) => {
-    let owed = 0;
-    for (const w of WEEKS) {
-      if (w <= currentWeek && !statusLookup[cell.dataset.user]?.[w]) owed += WEEKLY_BUYIN;
-    }
-    cell.textContent = owed ? `$${owed}` : "✅";
-    cell.classList.toggle("pay-owes", owed > 0);
+    const joined = statusLookup[cell.dataset.user]?.[currentWeek] === "paid";
+    cell.textContent = joined ? "Joined" : "Not Joined";
+    cell.classList.toggle("pay-owes", !joined);
   });
-
-  // pots count PAID players only: (paid × $5) split 90% weekly payout / 10% side pot
-  let sideTotal = 0;
-  for (const w of WEEKS) {
-    const total = paidCount(w) * WEEKLY_BUYIN;
-    sideTotal += total * SIDE_POT_SHARE;
-    document.querySelector(`#adminBoard [data-pot="${w}"]`).textContent =
-      total ? money(total * (1 - SIDE_POT_SHARE)) : "";
-    document.querySelector(`#adminBoard [data-side="${w}"]`).textContent =
-      total ? money(total * SIDE_POT_SHARE) : "";
-  }
-  document.getElementById("sidePotTotal").textContent = money(sideTotal);
-}
-
-function paidCount(week) {
-  let count = 0;
-  for (const userId in statusLookup) {
-    if (statusLookup[userId][week] === "paid") count++;
-  }
-  return count;
-}
-
-// $67.5 → "$67.50", $45 → "$45"
-function money(amount) {
-  const rounded = Math.round(amount * 100) / 100;
-  return "$" + (Number.isInteger(rounded) ? rounded : rounded.toFixed(2));
 }
 
 // Super Bowl Squares controls: notifications, on/off switch, price, teams/logos/colors, numbers
