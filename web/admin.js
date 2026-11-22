@@ -291,7 +291,7 @@ async function loadSquaresNotifications(settings) {
     panel.appendChild(seenBtn);
   }
 
-  // running totals per player = what to charge on Venmo
+  // running totals per player
   const players = Object.values(totals).sort((a, b) => b.count - a.count);
   if (players.length) {
     const sum = document.createElement("p");

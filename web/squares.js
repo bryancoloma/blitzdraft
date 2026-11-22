@@ -52,7 +52,6 @@ async function loadSquares() {
   }
 
   document.getElementById("squaresActions").style.display = "flex";
-  document.getElementById("venmoNote").style.display = "block";
 
   await loadClaimed();
   drawBoard();
@@ -273,8 +272,6 @@ function updateSummary() {
   document.getElementById("squaresSummary").textContent = text;
 
   document.getElementById("saveSquaresBtn").style.display = pending.size ? "inline-block" : "none";
-  document.getElementById("venmoBtn").textContent =
-    price && myCount ? `Pay $${myCount * price} on Venmo` : "Pay on Venmo";
 }
 
 document.getElementById("saveSquaresBtn").addEventListener("click", async () => {
@@ -302,7 +299,7 @@ document.getElementById("saveSquaresBtn").addEventListener("click", async () => 
       alert("Could not save your boxes — the board may be closed or the numbers already drawn.");
     }
   } else {
-    alert(`Saved ${count} box${count === 1 ? "" : "es"}! Bryan will send you a Venmo request.`);
+    alert(`Saved ${count} box${count === 1 ? "" : "es"}!`);
   }
 
   pending.clear();

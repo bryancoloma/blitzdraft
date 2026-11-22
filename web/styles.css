@@ -314,29 +314,11 @@ nav {
   margin: 4px auto 0;
 }
 
-/* Save + Venmo buttons side by side */
+/* Save button row under the board */
 #squaresActions {
   justify-content: center;
   gap: 12px;
   margin-bottom: 6px;
-}
-
-/* Venmo button — Squares page */
-#venmoBtn {
-  display: inline-block;
-  background-color: #008cff;   /* Venmo blue */
-  color: white;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 8px 16px;
-  border-radius: 9px;
-}
-
-#venmoNote {
-  color: #1e3a8a;
-  font-weight: bold;
-  margin-top: 4px;
 }
 
 /* white card behind the board so logos with white backgrounds blend in */
