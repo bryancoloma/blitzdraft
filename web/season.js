@@ -31,11 +31,13 @@ async function showSeason() {
   // get names
   const { data: profiles } = await supabaseClient
     .from("profiles")
-    .select("id, display_name");
+    .select("id, display_name, is_test");
 
   const nameLookup = {};
+  const testLookup = {};  // test accounts always sort to the bottom
   for (const p of profiles) {
     nameLookup[p.id] = p.display_name;
+    testLookup[p.id] = p.is_test === true;
   }
 
   // build: { user_id: { 1: wins, 2: wins, ... } }
@@ -63,8 +65,10 @@ async function showSeason() {
   }
   html += "<th>Total</th></tr>";
 
-  // rank players by their season total, highest first
+  // rank players by their season total, highest first (test accounts last)
   const rankedPlayers = Object.keys(byPlayer).sort((a, b) => {
+    // false (0) before true (1): real players first, test accounts last
+    if (testLookup[a] !== testLookup[b]) return testLookup[a] - testLookup[b];
     const totalA = Object.values(byPlayer[a]).reduce((sum, w) => sum + w, 0);
     const totalB = Object.values(byPlayer[b]).reduce((sum, w) => sum + w, 0);
     return totalB - totalA;

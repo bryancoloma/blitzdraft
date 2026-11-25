@@ -29,7 +29,15 @@ async function loadAdmin() {
 
   // 3. all players + the current week (the right-hand column shows this week)
   const { data: profiles } = await supabaseClient
-    .from("profiles").select("id, display_name, actual_name");
+    .from("profiles").select("id, display_name, actual_name, is_test");
+
+  // alphabetical by display name, test accounts at the bottom
+  profiles.sort((a, b) => {
+    const testA = a.is_test === true, testB = b.is_test === true;
+    if (testA !== testB) return testA - testB;
+    return (a.display_name || "").localeCompare(b.display_name || "");
+  });
+
   const { data: weekRow } = await supabaseClient
     .from("settings").select("value").eq("key", "current_week").maybeSingle();
   const currentWeek = parseInt(weekRow?.value) || 1;
